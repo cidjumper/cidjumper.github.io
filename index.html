@@ -1,9 +1,43 @@
-<html>
-    <head>
-        <title>Hola Mundo</title>
-    </head>
-    <body>
-        <H1>Hola mundo</H1>
-        <h2>Adios mundo</h2>
-    </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal Actividades</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Mis Actividades</h1>
+        <div class="character-container">
+            <div class="character"></div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="actividad1.html" target="content-frame">Actividad 1</a></li>
+            <li><a href="actividad2.html" target="content-frame">Actividad 2</a></li>
+            <li><a href="actividad3.html" target="content-frame">Actividad 3</a></li>
+            <li><a href="testing.html" target="content-frame">Testing</a></li>
+            <li><a href="digiperoodico/index.html" target="content-frame">DigiPeriódico</a></li>
+            <li><a href="restaurante/index.html" target="content-frame">Restaurante</a></li>
+            <li><a href="empresa/index.html" target="content-frame">Empresa</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <iframe name="content-frame" src="about:blank" class="content-frame"></iframe>
+        <div class="welcome-message">
+            <h2>¡Bienvenido! a mi pagina</h2>
+            <p>Pulsa en un menú para cargar un ejercicio</p>
+        </div>
+    </main>
+
+</body>
 </html>

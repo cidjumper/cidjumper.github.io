@@ -1,0 +1,84 @@
+/* --- Importación de Fuente Digital desde Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/* --- Estilos Generales del Mundo Digital --- */
+body {
+    background-color: #02041a; /* Un azul oscuro, como el núcleo de la red */
+    background-image: 
+        linear-gradient(rgba(13, 22, 78, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 22, 78, 0.5) 1px, transparent 1px);
+    background-size: 25px 25px;
+    color: #c0fdfb; /* Un cian pálido, para el texto principal */
+    font-family: 'VT323', monospace; /* Tipografía pixelada/monoespaciada */
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Contenedor Principal --- */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(9, 11, 47, 0.8); /* Fondo semitransparente */
+    border: 2px solid #00f0ff; /* Borde cian brillante */
+    box-shadow: 0 0 15px #00f0ff, inset 0 0 10px #00f0ff; /* Efecto de neón */
+}
+
+/* --- Cabecera del Digi-Periódico --- */
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px dashed #ff9d00; /* Separador naranja, como el logo de Digimon */
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 3em; /* Tamaño grande para el título */
+    color: #ff9d00; /* Naranja Digimon */
+    text-shadow: 
+        0 0 5px #ff9d00,
+        0 0 10px #ff6c00; /* Resplandor para el título */
+    margin: 0;
+}
+
+/* --- Estilo para los Artículos --- */
+article {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.2); /* Un fondo sutil para destacar el contenido */
+}
+
+article h2 {
+    font-size: 2em;
+    color: #ffde00; /* Amarillo brillante para el titular principal */
+    margin-top: 0;
+}
+
+article h3 {
+    font-size: 1.5em;
+    color: #00f0ff; /* Cian para los subtítulos */
+    margin-top: 0;
+}
+
+article p {
+    line-height: 1.6; /* Mejora la legibilidad */
+    text-align: justify;
+}
+
+/* --- Separador de Datos --- */
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 240, 255, 0), rgba(0, 240, 255, 0.75), rgba(0, 240, 255, 0));
+}
+
+/* --- Pie de Página --- */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    color: #5f7a9b; /* Un color más apagado para el footer */
+    font-size: 0.9em;
+}

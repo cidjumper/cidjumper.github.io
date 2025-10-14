@@ -1,0 +1,144 @@
+/* --- Estilos Generales y Reseteo --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a2e; /* Fondo oscuro espacial */
+    color: #e0e0e0; /* Color de texto principal */
+    font-family: 'Press Start 2P', cursive; /* Fuente pixelada de Google Fonts */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden; /* Evita barras de scroll por la animación */
+}
+
+/* --- Encabezado y Título --- */
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 4px solid #f92a82; /* Borde neón */
+    text-shadow: 0 0 10px #f92a82; /* Sombra de texto para efecto neón */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    animation: flicker 1.5s infinite alternate; /* Animación de parpadeo */
+}
+
+/* --- Contenedor del Personaje Animado --- */
+.character-container {
+    width: 100%;
+    height: 40px; /* Altura de la franja donde se mueve */
+    position: relative;
+    margin-top: 15px;
+}
+
+.character {
+    width: 30px;
+    height: 30px;
+    background-color: #fbd238; /* Color amarillo del personaje */
+    border: 3px solid #1a1a2e;
+    position: absolute;
+    bottom: 0;
+    /* La magia de la animación */
+    animation: moveAcross 15s linear infinite;
+}
+
+/* --- Menú de Navegación --- */
+nav {
+    background-color: #0f0c29; /* Fondo más oscuro para el menú */
+    padding: 10px 0;
+    border-bottom: 4px solid #f92a82;
+}
+
+nav ul {
+    display: flex; /* Pone los elementos en fila */
+    justify-content: center; /* Centra los elementos */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea en pantallas pequeñas */
+    list-style: none; /* Quita los puntos de la lista */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: all 0.3s ease; /* Transición suave para el hover */
+}
+
+nav ul li a:hover {
+    background-color: #f92a82; /* Color de fondo al pasar el ratón */
+    color: #0f0c29;
+    text-shadow: none;
+}
+
+/* --- Contenido Principal (Iframe) --- */
+main {
+    flex-grow: 1; /* Hace que el contenedor principal ocupe el espacio restante */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-frame {
+    width: 100%;
+    height: 100%;
+    border: none; /* Quitamos el borde feo del iframe */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.welcome-message {
+    text-align: center;
+    pointer-events: none; /* Permite hacer clic a través del mensaje al iframe */
+    z-index: -1; /* Lo pone detrás del iframe una vez que se carga algo */
+}
+
+.welcome-message h2 {
+    font-size: 2rem;
+    color: #fbd238;
+}
+
+/* --- Keyframes para Animaciones --- */
+
+/* Animación de parpadeo para el título */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #f92a82,
+        0 0 19px #f92a82,
+        0 0 40px #f92a82;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+/* Animación del personaje moviéndose */
+@keyframes moveAcross {
+    0% {
+        left: -30px; /* Empieza fuera de la pantalla a la izquierda */
+        transform: scaleX(1); /* Mirando a la derecha */
+    }
+    49% {
+        transform: scaleX(1); /* Mantiene la dirección */
+    }
+    50% {
+        left: calc(100% + 30px); /* Llega al final de la pantalla */
+        transform: scaleX(-1); /* Se gira para mirar a la izquierda */
+    }
+    99% {
+        transform: scaleX(-1); /* Mantiene la dirección */
+    }
+    100% {
+        left: -30px; /* Vuelve al inicio */
+        transform: scaleX(1); /* Se gira de nuevo para el siguiente ciclo */
+    }
+}

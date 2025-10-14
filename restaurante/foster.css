@@ -1,0 +1,149 @@
+
+/* --- Importamos una fuente de Google Fonts con estilo retro/diner --- */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans:wght@400;700&display=swap');
+
+/* --- Estilos Generales del Body --- */
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* --- Estilo del Header (Cabecera) --- */
+header {
+    background-color: #d32f2f;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    border-bottom: 5px solid #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 3.5em;
+    margin: 0;
+    text-shadow: 3px 3px 0 #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+header img {
+    border: 3px solid white;
+    border-radius: 50%;
+    background-color: white;
+}
+
+/* --- Estilo del Contenido Principal --- */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+main h2 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2.5em;
+    color: #d32f2f;
+    text-transform: uppercase;
+}
+
+/* --- Estilo de la Navegación con las Imágenes --- */
+nav {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    border: 5px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+
+nav a:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
+}
+
+nav img {
+    display: block;
+    width: 100%;
+}
+
+/* --- ESTILOS ADICIONALES PARA PÁGINAS DE RECETAS --- */
+
+/* Contenedor principal de la receta para imagen e ingredientes */
+.recipe-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; /* <-- CORREGIDO */
+    gap: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* Imagen principal de la receta */
+.recipe-image {
+    max-width: 400px;
+    border: 5px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    flex: 1;
+}
+
+/* Detalles de la receta (ingredientes) */
+.recipe-details {
+    flex: 1.5;
+}
+
+/* Títulos de sección (Ingredientes, Preparación) */
+main h3 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.8em;
+    color: #333;
+    border-bottom: 3px solid #d32f2f;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Estilo para las listas de ingredientes y pasos */
+main ul, main ol {
+    padding-left: 25px;
+    line-height: 1.6;
+}
+
+main li {
+    margin-bottom: 10px;
+}
+
+/* Estilo para el botón de "Volver" */
+.btn-volver {
+    display: inline-block;
+    margin-top: 40px;
+    background-color: #d32f2f;
+    color: white;
+    padding: 12px 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    border-bottom: 3px solid #8f1717;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-volver:hover {
+    background-color: #e53935;
+    transform: translateY(-2px);
+}

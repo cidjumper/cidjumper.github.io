@@ -1,0 +1,114 @@
+/* --- Estilos Globales y Tipografía --- */
+/* Inspirado en la paleta y fuentes de El País, usamos una fuente serif para titulares 
+   (como Georgia) y una sans-serif para el cuerpo del texto para máxima legibilidad. */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    background-color: #fdfdfd; /* Un blanco ligeramente apagado */
+    color: #333; /* Color de texto principal */
+    line-height: 1.6;
+}
+
+/* --- Contenedor Principal --- */
+/* Centramos el contenido y le damos un ancho máximo para que sea cómodo de leer en pantallas grandes. */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Cabecera --- */
+/* La cabecera imita el estilo del logo de un periódico, con un borde inferior para separarlo del contenido. */
+.header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0; /* Línea separadora sutil */
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-family: "Georgia", "Times New Roman", Times, serif;
+    font-size: 3.5em; /* Tamaño grande y llamativo */
+    font-weight: 700;
+    margin: 20px 0 10px;
+    color: #1a1a1a;
+}
+
+.header p {
+    font-size: 1.1em;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto; /* Centrar el párrafo de introducción */
+}
+
+/* --- Grid de Proyectos --- */
+/* Usamos CSS Grid para crear una maquetación responsive que se adapta al tamaño de la pantalla. */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Columnas flexibles */
+    gap: 30px; /* Espacio entre las tarjetas */
+}
+
+/* --- Tarjetas de Proyecto --- */
+/* Cada tarjeta tiene un borde y una sombra sutil para darle profundidad y separarla del fondo. */
+.project-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column; /* Organiza el contenido en vertical */
+    overflow: hidden; /* Asegura que el contenido no se salga de los bordes */
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio disponible */
+}
+
+.project-content h2 {
+    font-family: "Georgia", "Times New Roman", Times, serif;
+    font-size: 1.6em;
+    margin: 0 0 15px 0;
+    color: #1a1a1a;
+    border-bottom: 2px solid #333; /* Línea sólida bajo el titular */
+    padding-bottom: 10px;
+}
+
+.project-content p {
+    font-size: 1em;
+    color: #555;
+    flex-grow: 1; /* Empuja el footer de la tarjeta hacia abajo si es necesario */
+}
+
+/* --- Pie de Página --- */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0; /* Línea separadora */
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* --- Adaptación para Móviles (Media Queries) --- */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5em;
+    }
+
+    .header p {
+        font-size: 1em;
+    }
+
+    .project-content h2 {
+        font-size: 1.4em;
+    }
+}
