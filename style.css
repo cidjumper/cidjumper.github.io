@@ -58,8 +58,13 @@ nav {
 nav ul {
     display: flex; /* Pone los elementos en fila */
     justify-content: center; /* Centra los elementos */
-    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea en pantallas pequeñas */
+    flex-wrap: wrap; /* <-- ESTILO ORIGINAL RESTAURADO (permite que baje a 2 líneas) */
     list-style: none; /* Quita los puntos de la lista */
+}
+
+/* AÑADIDO: Damos posición relativa al 'li' padre */
+nav ul li {
+    position: relative; /* Necesario para anclar el submenú */
 }
 
 nav ul li a {
@@ -75,6 +80,51 @@ nav ul li a:hover {
     color: #0f0c29;
     text-shadow: none;
 }
+
+
+/* ===============================================
+--- NUEVA SECCIÓN: Estilos para Submenús ---
+===============================================
+*/
+
+/* 1. El contenedor <ul> del submenú (oculto por defecto) */
+nav ul li ul {
+    display: none; /* Oculto hasta que se haga hover */
+    position: absolute;
+    top: 100%; /* Se posiciona justo debajo del 'li' padre */
+    left: 0;
+    
+    /* Estilos para que coincida con el tema */
+    background-color: #0f0c29; /* Mismo fondo que la barra de nav */
+    border: 4px solid #f92a82; /* Mismo borde neón */
+    border-top: none; /* Quitamos borde superior para que parezca "unido" */
+    
+    min-width: 280px; /* Ancho mínimo para que quepa el texto */
+    z-index: 100; /* Asegura que esté por encima de todo */
+}
+
+/* 2. Mostrar el submenú al hacer hover sobre el 'li' padre */
+nav ul li:hover > ul {
+    display: block;
+}
+
+/* 3. Los 'li' del submenú */
+nav ul li ul li {
+    width: 100%; /* Ocupa todo el ancho del desplegable */
+}
+
+/* 4. Los enlaces <a> del submenú */
+nav ul li ul li a {
+    text-align: left; /* Alinea el texto a la izquierda (mejor para menús) */
+    padding: 12px 20px;
+    font-size: 0.9em; /* Fuente un poco más pequeña */
+}
+
+/* NOTA: La regla 'nav ul li a:hover' que ya tenías
+   se aplicará automáticamente a estos enlaces, 
+   así que no necesitamos repetirla.
+*/
+
 
 /* --- Contenido Principal (Iframe) --- */
 main {
@@ -92,12 +142,19 @@ main {
     position: absolute;
     top: 0;
     left: 0;
+    /* Fondo transparente al inicio */
 }
 
 .welcome-message {
     text-align: center;
     pointer-events: none; /* Permite hacer clic a través del mensaje al iframe */
-    z-index: -1; /* Lo pone detrás del iframe una vez que se carga algo */
+    
+    /* CAMBIO 1: 
+       Cambiamos z-index a 1 (para ponerlo por ENCIMA)
+       y añadimos 'transition'
+    */
+    z-index: 1; 
+    transition: opacity 0.5s ease;
 }
 
 .welcome-message h2 {
@@ -141,4 +198,18 @@ main {
         left: -30px; /* Vuelve al inicio */
         transform: scaleX(1); /* Se gira de nuevo para el siguiente ciclo */
     }
+}
+
+/* CAMBIO 2: 
+   AÑADIMOS ESTAS REGLAS NUEVAS AL FINAL
+*/
+
+/* 1. Oculta el mensaje de bienvenida cuando se carga contenido */
+main.content-loaded .welcome-message {
+    opacity: 0;
+}
+
+/* 2. Pone el fondo blanco al iframe SÓLO cuando se carga contenido */
+main.content-loaded .content-frame {
+    background-color: #fff;
 }

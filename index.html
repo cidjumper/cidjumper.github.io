@@ -21,20 +21,34 @@
     <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="actividad1.html" target="content-frame">Actividad 1</a></li>
-            <li><a href="actividad2.html" target="content-frame">Actividad 2</a></li>
-            <li><a href="actividad3.html" target="content-frame">Actividad 3</a></li>
-            <li><a href="testing.html" target="content-frame">Testing</a></li>
-            <li><a href="digiperoodico/index.html" target="content-frame">DigiPeriódico</a></li>
+            
+            <li>
+                <a href="#">Actividades ▼</a> 
+                <ul>
+                    <li><a href="actividad1.html" target="content-frame">Actividad 1</a></li>
+                    <li><a href="actividad2.html" target="content-frame">Actividad 2</a></li>
+                    <li><a href="actividad3.html" target="content-frame">Actividad 3</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Varios ▼</a>
+                <ul>
+                    <li><a href="testing.html" target="content-frame">Testing</a></li>
+                    <li><a href="digiperoodico/index.html" target="content-frame">DigiPeriódico</a></li>
+                    <li><a href="empresa/index.html" target="content-frame">Empresa</a></li>
+                </ul>
+            </li>
+
             <li><a href="restaurante/index.html" target="content-frame">Restaurante</a></li>
-            <li><a href="empresa/index.html" target="content-frame">Empresa</a></li>
+            <li><a href="horario/index.html" target="content-frame">Horario</a></li>
         </ul>
     </nav>
-
     <main>
-        <iframe name="content-frame" src="about:blank" class="content-frame"></iframe>
+        <iframe name="content-frame" src="about:blank" class="content-frame" onload="this.parentElement.classList.add('content-loaded')"></iframe>
+        
         <div class="welcome-message">
-            <h2>¡Bienvenido! a mi pagina</h2>
+            <h2>¡Bienvenido a mi página!</h2>
             <p>Pulsa en un menú para cargar un ejercicio</p>
         </div>
     </main>

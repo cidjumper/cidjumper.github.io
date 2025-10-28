@@ -1,0 +1,101 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5; /* Un fondo gris claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+.schedule-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Estilos de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Bordes unidos */
+    table-layout: fixed; /* Ancho de columnas uniforme */
+}
+
+/* Estilos de celdas (títulos y contenido) */
+th, td {
+    border: 1px solid #b0bec5; /* Borde gris */
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle; /* Centrado vertical */
+    height: 70px;
+    font-weight: 700; /* Texto en negrita */
+    font-size: 0.9rem;
+    box-sizing: border-box; /* Para que el padding no afecte al ancho */
+}
+
+/* Estilos de la cabecera (LUNES, MARTES...) y horas */
+thead th {
+    background-color: #eceff1;
+    font-size: 1rem;
+}
+
+tbody th {
+    background-color: #f5f5f5;
+    font-weight: 400; /* Horas sin negrita */
+    width: 120px; /* Ancho fijo para la columna de horas */
+}
+
+/* Clases de colores para las asignaturas */
+.prog { background-color: #fff9c4; } /* Amarillo */
+.bbdd { background-color: #ffe0b2; } /* Naranja claro / Tan */
+.ed   { background-color: #ffccbc; } /* Naranja */
+.sost { background-color: #f8bbd0; } /* Rosa */
+.si   { background-color: #b3e5fc; } /* Azul claro */
+.ipe  { background-color: #ffcdd2; } /* Rojo claro */
+.lm   { background-color: #c8e6c9; } /* Verde claro */
+.dig  { background-color: #cfd8dc; } /* Gris azulado */
+
+/* Estilos de la leyenda */
+.legend {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.legend h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+.legend p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}
+
+/* Estilos para los recuadros de color en la leyenda */
+.legend span {
+    display: inline-block;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #222; /* Texto oscuro para mejor legibilidad */
+    min-width: 50px; /* Ancho mínimo */
+    text-align: center;
+    margin-right: 10px;
+}
