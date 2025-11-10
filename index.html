@@ -20,39 +20,112 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
+            <!-- Modificado para que el script lo reconozca -->
+            <li><a href="#" id="home-link">Inicio</a></li>
             
             <li>
                 <a href="#">Actividades ▼</a> 
                 <ul>
-                    <li><a href="actividad1.html" target="content-frame">Actividad 1</a></li>
-                    <li><a href="actividad2.html" target="content-frame">Actividad 2</a></li>
-                    <li><a href="actividad3.html" target="content-frame">Actividad 3</a></li>
-                    <li><a href="reto/reto1/index.html" target="content-frame">Reto 1</a></li>                        
+                    <!-- Quitado target="content-frame" -->
+                    <li><a href="actividad1.html">Actividad 1</a></li>
+                    <li><a href="actividad2.html">Actividad 2</a></li>
+                    <li><a href="actividad3.html">Actividad 3</a></li>
                 </ul>
             </li>
 
             <li>
                 <a href="#">Varios ▼</a>
                 <ul>
-                    <li><a href="testing.html" target="content-frame">Testing</a></li>
-                    <li><a href="digiperoodico/index.html" target="content-frame">DigiPeriódico</a></li>
-                    <li><a href="empresa/index.html" target="content-frame">Empresa</a></li>
+                    <!-- Quitado target="content-frame" -->
+                    <li><a href="testing.html">Testing</a></li>
+                    <li><a href="digiperoodico/index.html">DigiPeriódico</a></li>
+                    <li><a href="empresa/index.html">Empresa</a></li>
                 </ul>
             </li>
 
-            <li><a href="restaurante/index.html" target="content-frame">Restaurante</a></li>
-            <li><a href="horario/index.html" target="content-frame">Horario</a></li>
+            <!-- Quitado target="content-frame" -->
+            <li><a href="restaurante/index.html">Restaurante</a></li>
+            <li><a href="horario/index.html">Horario</a></li>
         </ul>
     </nav>
     <main>
-        <iframe name="content-frame" src="about:blank" class="content-frame" onload="this.parentElement.classList.add('content-loaded')"></iframe>
-        
-        <div class="welcome-message">
-            <h2>¡Bienvenido a mi página!</h2>
-            <p>Pulsa en un menú para cargar un ejercicio</p>
+        <!--
+          Contenedor que reemplaza al <iframe>.
+          El mensaje de bienvenida ahora está DENTRO.
+        -->
+        <div id="content-container">
+            <div class="welcome-message">
+                <h2>¡Bienvenido a mi página!</h2>
+                <p>Pulsa en un menú para cargar un ejercicio</p>
+            </div>
         </div>
     </main>
+
+    <!-- JavaScript para cargar el contenido -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentContainer = document.getElementById('content-container');
+            // Guarda el HTML original del mensaje de bienvenida
+            const welcomeMessageHTML = contentContainer.innerHTML;
+
+            // Selecciona TODOS los enlaces de la navegación que apuntan a un .html
+            // (He actualizado esto para que coincida con tus enlaces)
+            const contentLinks = document.querySelectorAll('nav a[href$=".html"], nav a[href*="/index.html"]');
+
+            contentLinks.forEach(link => {
+                // Previene el comportamiento por defecto de CADA enlace
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Evita que la página recargue
+                    
+                    // Comprueba si es el enlace 'index.html' (que ahora es 'home-link')
+                    if (this.id === 'home-link') {
+                        // Si es 'Inicio', solo restaura el mensaje de bienvenida
+                        contentContainer.innerHTML = welcomeMessageHTML;
+                    } else {
+                        // Si es cualquier otro enlace, carga el contenido
+                        loadContent(this.href);
+                    }
+                });
+            });
+
+            // Función para cargar el contenido usando fetch
+            async function loadContent(url) {
+                // 1. Muestra un mensaje de carga (usará los estilos de style.css)
+                contentContainer.innerHTML = '<p class="loading-message">Cargando...</p>';
+
+                try {
+                    // 2. Intenta cargar la URL
+                    const response = await fetch(url);
+
+                    // Si la respuesta no es OK (ej. 404 No Encontrado)
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP ${response.status}: No se pudo encontrar el recurso.`);
+                    }
+
+                    const htmlText = await response.text();
+
+                    // 3. Parsea el HTML recibido
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(htmlText, 'text/html');
+
+                    // 4. Extrae el contenido de la etiqueta <main> o <body> de la página cargada
+                    const newContent = doc.querySelector('main')?.innerHTML || doc.body.innerHTML;
+
+                    if (!newContent) {
+                         throw new Error('No se encontró contenido principal en la página cargada.');
+                    }
+                    
+                    // 5. Inserta el nuevo contenido en el contenedor
+                    contentContainer.innerHTML = newContent;
+
+                } catch (error) {
+                    // 6. Si algo falla, muestra un mensaje de error
+                    console.error('Error al cargar el contenido:', error);
+                    contentContainer.innerHTML = `<p class"error-message">Error al cargar la página: ${error.message}</p>`;
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
