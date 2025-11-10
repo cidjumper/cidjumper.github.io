@@ -126,41 +126,39 @@ nav ul li ul li a {
 */
 
 
-/* --- Contenido Principal (Iframe) --- */
+/* --- Contenido Principal (CORREGIDO) --- */
 main {
     flex-grow: 1; /* Hace que el contenedor principal ocupe el espacio restante */
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* Quitamos flex, position relative, etc. que eran para el iframe */
+    padding: 20px; /* Añadimos espacio alrededor del contenedor */
 }
 
-.content-frame {
+/* ESTA REGLA REEMPLAZA A .content-frame */
+#content-container {
     width: 100%;
-    height: 100%;
-    border: none; /* Quitamos el borde feo del iframe */
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* Fondo transparente al inicio */
+    min-height: 60vh; /* Altura mínima */
+    background-color: #fff; /* Fondo blanco para el contenido cargado */
+    color: #1a1a2e; /* Color de texto oscuro para el contenido */
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
 
+/* ESTA REGLA SUSTITUYE A LA ORIGINAL */
 .welcome-message {
     text-align: center;
-    pointer-events: none; /* Permite hacer clic a través del mensaje al iframe */
-    
-    /* CAMBIO 1: 
-       Cambiamos z-index a 1 (para ponerlo por ENCIMA)
-       y añadimos 'transition'
-    */
-    z-index: 1; 
-    transition: opacity 0.5s ease;
+    /* El contenido del 'welcome-message' está ahora sobre fondo blanco,
+       así que le devolvemos el color de texto oscuro */
+    color: #1a1a2e; 
+    padding: 40px 0; /* Espacio para centrarlo verticalmente */
 }
 
 .welcome-message h2 {
     font-size: 2rem;
-    color: #fbd238;
+    color: #f92a82; /* Mantenemos un color temático para el título */
 }
+/* La 'p' usará el color de #content-container */
+
 
 /* --- Keyframes para Animaciones --- */
 
@@ -200,16 +198,25 @@ main {
     }
 }
 
-/* CAMBIO 2: 
-   AÑADIMOS ESTAS REGLAS NUEVAS AL FINAL
+/* --- REGLAS ELIMINADAS --- 
+   Ya no son necesarias:
+   - main.content-loaded .welcome-message
+   - main.content-loaded .content-frame
 */
 
-/* 1. Oculta el mensaje de bienvenida cuando se carga contenido */
-main.content-loaded .welcome-message {
-    opacity: 0;
+/* --- NUEVAS REGLAS AÑADIDAS --- */
+
+/* Estilos para los mensajes de carga y error */
+/* (Aparecerán dentro de #content-container) */
+.loading-message, .error-message {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 40px;
+    font-family: Arial, sans-serif; /* Fuente más legible para mensajes */
+    color: #555; /* Color oscuro sobre fondo blanco */
 }
 
-/* 2. Pone el fondo blanco al iframe SÓLO cuando se carga contenido */
-main.content-loaded .content-frame {
-    background-color: #fff;
+.error-message {
+    color: #D8000C; /* Un rojo estándar y fuerte */
+    font-weight: bold;
 }
