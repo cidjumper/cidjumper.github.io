@@ -20,17 +20,14 @@
 
     <nav>
         <ul>
-            <!-- Modificado para que el script lo reconozca -->
             <li><a href="#" id="home-link">Inicio</a></li>
             
             <li>
                 <a href="#">Actividades ▼</a> 
                 <ul>
-                    <!-- Quitado target="content-frame" -->
                     <li><a href="actividad1.html">Actividad 1</a></li>
                     <li><a href="actividad2.html">Actividad 2</a></li>
                     <li><a href="actividad3.html">Actividad 3</a></li>
-                    <!-- Aquí está el enlace -->
                     <li><a href="reto/reto1/index.html">Reto 1</a></li>
                 </ul>
             </li>
@@ -38,23 +35,17 @@
             <li>
                 <a href="#">Varios ▼</a>
                 <ul>
-                    <!-- Quitado target="content-frame" -->
                     <li><a href="testing.html">Testing</a></li>
                     <li><a href="digiperoodico/index.html">DigiPeriódico</a></li>
                     <li><a href="empresa/index.html">Empresa</a></li>
                 </ul>
             </li>
 
-            <!-- Quitado target="content-frame" -->
             <li><a href="restaurante/index.html">Restaurante</a></li>
             <li><a href="horario/index.html">Horario</a></li>
         </ul>
     </nav>
     <main>
-        <!--
-          Contenedor que reemplaza al <iframe>.
-          El mensaje de bienvenida ahora está DENTRO.
-        -->
         <div id="content-container">
             <div class="welcome-message">
                 <h2>¡Bienvenido a mi página!</h2>
@@ -63,67 +54,117 @@
         </div>
     </main>
 
-    <!-- JavaScript para cargar el contenido -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const contentContainer = document.getElementById('content-container');
             // Guarda el HTML original del mensaje de bienvenida
             const welcomeMessageHTML = contentContainer.innerHTML;
 
-            // Selecciona TODOS los enlaces de la navegación que apuntan a un .html
-            // (He actualizado esto para que coincida con tus enlaces)
+            // Selecciona TODOS los enlaces de la navegación
             const contentLinks = document.querySelectorAll('nav a[href$=".html"], nav a[href*="/index.html"]');
 
             contentLinks.forEach(link => {
-                // Previene el comportamiento por defecto de CADA enlace
                 link.addEventListener('click', function(event) {
                     event.preventDefault(); // Evita que la página recargue
-                    
-                    // Comprueba si es el enlace 'index.html' (que ahora es 'home-link')
-                    if (this.id === 'home-link') {
-                        // Si es 'Inicio', solo restaura el mensaje de bienvenida
-                        contentContainer.innerHTML = welcomeMessageHTML;
-                    } else {
-                        // Si es cualquier otro enlace, carga el contenido
-                        loadContent(this.href);
-                    }
+                    loadContent(this.href); // Llama a la función de carga
                 });
             });
 
-            // Función para cargar el contenido usando fetch
+            // --- AÑADIDO: Manejo especial para el enlace "Inicio" ---
+            const homeLink = document.getElementById('home-link');
+            if (homeLink) {
+                homeLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    // 1. Restaura el mensaje de bienvenida
+                    contentContainer.innerHTML = welcomeMessageHTML;
+                    // 2. Elimina el CSS y JS de la página anterior
+                    document.getElementById('loaded-content-style')?.remove();
+                    document.querySelectorAll('.loaded-content-script').forEach(script => script.remove());
+                });
+            }
+
+
+            /**
+             * --- FUNCIÓN loadContent MEJORADA ---
+             * Ahora carga HTML, CSS y JavaScript.
+             */
             async function loadContent(url) {
-                // 1. Muestra un mensaje de carga (usará los estilos de style.css)
+                // 1. Muestra un mensaje de carga
                 contentContainer.innerHTML = '<p class="loading-message">Cargando...</p>';
 
-                try {
-                    // 2. Intenta cargar la URL
-                    const response = await fetch(url);
+                // 2. Elimina CSS y Scripts dinámicos anteriores
+                document.getElementById('loaded-content-style')?.remove();
+                document.querySelectorAll('.loaded-content-script').forEach(script => script.remove());
 
-                    // Si la respuesta no es OK (ej. 404 No Encontrado)
+                // 3. Calcula la URL base para las rutas relativas
+                const baseUrl = url.substring(0, url.lastIndexOf('/') + 1);
+
+                try {
+                    // 4. Intenta cargar la URL
+                    const response = await fetch(url);
                     if (!response.ok) {
                         throw new Error(`Error HTTP ${response.status}: No se pudo encontrar el recurso.`);
                     }
-
                     const htmlText = await response.text();
 
-                    // 3. Parsea el HTML recibido
+                    // 5. Parsea el HTML recibido
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(htmlText, 'text/html');
 
-                    // 4. Extrae el contenido de la etiqueta <main> o <body> de la página cargada
-                    const newContent = doc.querySelector('main')?.innerHTML || doc.body.innerHTML;
+                    // 6. Carga el CSS
+                    const stylesheetLink = doc.querySelector('link[rel="stylesheet"]');
+                    if (stylesheetLink) {
+                        const relativeHref = stylesheetLink.getAttribute('href');
+                        if (relativeHref) {
+                            // Resuelve la ruta completa (ej: "reto/reto1/style.css")
+                            const absoluteHref = new URL(relativeHref, baseUrl).href;
+                            
+                            const newLink = document.createElement('link');
+                            newLink.rel = 'stylesheet';
+                            newLink.id = 'loaded-content-style'; // ID para borrarlo luego
+                            newLink.href = absoluteHref;
+                            document.head.appendChild(newLink);
+                        }
+                    }
 
+                    // 7. Extrae el contenido principal
+                    const newContent = doc.querySelector('main')?.innerHTML || doc.body.innerHTML;
                     if (!newContent) {
                          throw new Error('No se encontró contenido principal en la página cargada.');
                     }
                     
-                    // 5. Inserta el nuevo contenido en el contenedor
+                    // 8. Inserta el nuevo contenido en el contenedor
                     contentContainer.innerHTML = newContent;
 
+                    // 9. --- NUEVO: Busca y carga los Scripts ---
+                    // Se ejecuta DESPUÉS de insertar el HTML.
+                    const scripts = doc.querySelectorAll('script');
+                    
+                    scripts.forEach(script => {
+                        const newScript = document.createElement('script');
+                        // Clase para poder borrarlos luego
+                        newScript.className = 'loaded-content-script'; 
+
+                        if (script.src) {
+                            // Script externo (con 'src')
+                            const relativeSrc = script.getAttribute('src');
+                            // Resuelve la ruta (igual que con el CSS)
+                            const absoluteSrc = new URL(relativeSrc, baseUrl).href;
+                            newScript.src = absoluteSrc;
+                            newScript.defer = true; // 'defer' para ejecutar en orden
+                        } else {
+                            // Script inline (sin 'src')
+                            newScript.text = script.text;
+                        }
+                        
+                        // Añade el script al final del body para que se ejecute
+                        document.body.appendChild(newScript);
+                    });
+
                 } catch (error) {
-                    // 6. Si algo falla, muestra un mensaje de error
+                    // 10. Si algo falla, muestra un mensaje de error
                     console.error('Error al cargar el contenido:', error);
-                    contentContainer.innerHTML = `<p class"error-message">Error al cargar la página: ${error.message}</p>`;
+                    contentContainer.innerHTML = `<p class="error-message">Error al cargar la página: ${error.message}</p>`;
                 }
             }
         });
