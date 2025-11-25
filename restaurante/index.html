@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante Kyoshin</title>
+    
+    <meta name="author" content="Jose Gómez Contreras">
+    <meta name="description" content="Carta del Restaurante Kyoshin. Especialidades japonesas y españolas.">
+    <meta name="keywords" content="Restaurante, Kyoshin, Comida Japonesa, Gyozas, Takoyaki, Tortilla">
+    <meta name="robots" content="index, follow">
+
+    <title>Restaurante Kyoshin - Inicio</title>
     <link rel="stylesheet" href="foster.css">
 </head>
 <body>
@@ -16,22 +22,36 @@
 
     <main>
         <h2>Nuestra Carta</h2>
-        <p>Haz clic en la imagen de una de nuestras especialidades para ver la receta:</p>
         
-        <nav>
-            <a href="tortillapatatas.html">
-                <img src="img/tortilla.jpeg" alt="Receta de Tortilla de Patatas" width="300">
-            </a>
+        <section class="card-box">
+            <p class="intro-text">Haz clic en la imagen de una de nuestras especialidades para ver la receta secreta:</p>
+            
+            <nav class="menu-grid">
+                <a href="tortillapatatas.html" class="menu-item">
+                    <img src="img/tortilla.jpeg" alt="Receta de Tortilla de Patatas">
+                </a>
 
-            <a href="gyozas.html">
-                <img src="img/gyoza.jpeg" alt="Receta de Gyozas Japonesas" width="300">
-            </a>
+                <a href="gyozas.html" class="menu-item">
+                    <img src="img/gyoza.jpeg" alt="Receta de Gyozas Japonesas">
+                </a>
 
-            <a href="takoyakis.html">
-                 <img src="img/takoyaki.jpeg" alt="Receta de Takoyakis" width="300">
-            </a>
-        </nav>
+                <a href="takoyakis.html" class="menu-item">
+                     <img src="img/takoyaki.jpeg" alt="Receta de Takoyakis">
+                </a>
+            </nav>
+        </section>
+
+        <div class="actions-container">
+            <a href="../index.html" class="btn-volver">Volver al Inicio</a>
+        </div>
     </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Jose Gómez Contreras - Restaurante Kyoshin</p>
+            <p>Desarrollo de Aplicaciones Web</p>
+        </div>
+    </footer>
 
 </body>
 </html>

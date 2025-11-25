@@ -1,4 +1,3 @@
-/* --- Estilos Generales y Reseteo --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,163 +5,217 @@
 }
 
 body {
-    background-color: #1a1a2e; /* Fondo oscuro espacial */
-    color: #e0e0e0; /* Color de texto principal */
-    font-family: 'Press Start 2P', cursive; /* Fuente pixelada de Google Fonts */
+    background-color: #1a1a2e;
+    color: #e0e0e0; 
+    font-family: 'Press Start 2P', cursive;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    overflow: hidden; /* Evita barras de scroll por la animación */
+    min-height: 100vh; 
+    overflow-x: hidden; 
 }
 
-/* --- Encabezado y Título --- */
 header {
-    text-align: center;
+    width: 100%;
     padding: 20px;
-    border-bottom: 4px solid #f92a82; /* Borde neón */
-    text-shadow: 0 0 10px #f92a82; /* Sombra de texto para efecto neón */
+    background-color: #0f0c29;
+    border-bottom: 4px solid #f92a82; 
+    box-shadow: 0 0 15px rgba(249, 42, 130, 0.5);
+    text-align: center;
+    position: relative;
 }
 
 header h1 {
     font-size: 2.5rem;
     color: #fff;
-    animation: flicker 1.5s infinite alternate; /* Animación de parpadeo */
+    text-shadow: 0 0 10px #f92a82;
+    animation: flicker 1.5s infinite alternate;
+    margin-bottom: 20px;
 }
 
-/* --- Contenedor del Personaje Animado --- */
 .character-container {
     width: 100%;
-    height: 40px; /* Altura de la franja donde se mueve */
+    height: 50px;
     position: relative;
-    margin-top: 15px;
+    border-top: 2px dashed #444; 
+    background-color: rgba(255, 255, 255, 0.05);
+    margin-top: 10px;
+    overflow: hidden;
 }
 
 .character {
-    width: 30px;
-    height: 30px;
-    background-color: #fbd238; /* Color amarillo del personaje */
-    border: 3px solid #1a1a2e;
+    width: 40px;
+    height: 40px;
+    background-color: #fbd238;
+    border: 4px solid #000;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
     position: absolute;
-    bottom: 0;
-    /* La magia de la animación */
-    animation: moveAcross 15s linear infinite;
+    bottom: 5px;
+    left: 0;
+    animation: moveAcross 10s linear infinite; 
 }
 
-/* --- Menú de Navegación --- */
 nav {
-    background-color: #0f0c29; /* Fondo más oscuro para el menú */
-    padding: 10px 0;
+    background-color: #161625;
+    padding: 20px 0;
     border-bottom: 4px solid #f92a82;
+    z-index: 1000;
 }
 
 nav ul {
-    display: flex; /* Pone los elementos en fila */
-    justify-content: center; /* Centra los elementos */
-    flex-wrap: wrap; /* <-- ESTILO ORIGINAL RESTAURADO (permite que baje a 2 líneas) */
-    list-style: none; /* Quita los puntos de la lista */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 15px;
 }
 
-/* AÑADIDO: Damos posición relativa al 'li' padre */
 nav ul li {
-    position: relative; /* Necesario para anclar el submenú */
+    position: relative;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     display: block;
-    transition: all 0.3s ease; /* Transición suave para el hover */
+    background-color: #2a2a4e;
+    border: 3px solid #f92a82;
+    box-shadow: 4px 4px 0px #000;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
 nav ul li a:hover {
-    background-color: #f92a82; /* Color de fondo al pasar el ratón */
+    background-color: #f92a82;
     color: #0f0c29;
-    text-shadow: none;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000;
 }
 
-
-/* ===============================================
---- NUEVA SECCIÓN: Estilos para Submenús ---
-===============================================
-*/
-
-/* 1. El contenedor <ul> del submenú (oculto por defecto) */
 nav ul li ul {
-    display: none; /* Oculto hasta que se haga hover */
+    display: none;
     position: absolute;
-    top: 100%; /* Se posiciona justo debajo del 'li' padre */
+    top: 100%;
     left: 0;
-    
-    /* Estilos para que coincida con el tema */
-    background-color: #0f0c29; /* Mismo fondo que la barra de nav */
-    border: 4px solid #f92a82; /* Mismo borde neón */
-    border-top: none; /* Quitamos borde superior para que parezca "unido" */
-    
-    min-width: 280px; /* Ancho mínimo para que quepa el texto */
-    z-index: 100; /* Asegura que esté por encima de todo */
+    background-color: #0f0c29;
+    border: 3px solid #f92a82;
+    min-width: 250px;
+    z-index: 100;
+    padding: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+    margin-top: 10px;
 }
 
-/* 2. Mostrar el submenú al hacer hover sobre el 'li' padre */
 nav ul li:hover > ul {
     display: block;
 }
 
-/* 3. Los 'li' del submenú */
 nav ul li ul li {
-    width: 100%; /* Ocupa todo el ancho del desplegable */
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-/* 4. Los enlaces <a> del submenú */
 nav ul li ul li a {
-    text-align: left; /* Alinea el texto a la izquierda (mejor para menús) */
-    padding: 12px 20px;
-    font-size: 0.9em; /* Fuente un poco más pequeña */
+    text-align: left;
+    font-size: 0.7em;
+    border-color: #4a4a8a; 
 }
 
-/* NOTA: La regla 'nav ul li a:hover' que ya tenías
-   se aplicará automáticamente a estos enlaces, 
-   así que no necesitamos repetirla.
-*/
-
-
-/* --- Contenido Principal (CORREGIDO) --- */
 main {
-    flex-grow: 1; /* Hace que el contenedor principal ocupe el espacio restante */
-    /* Quitamos flex, position relative, etc. que eran para el iframe */
-    padding: 20px; /* Añadimos espacio alrededor del contenedor */
+    flex-grow: 1; 
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
 }
 
-/* ESTA REGLA REEMPLAZA A .content-frame */
 #content-container {
     width: 100%;
-    min-height: 60vh; /* Altura mínima */
-    background-color: #fff; /* Fondo blanco para el contenido cargado */
-    color: #1a1a2e; /* Color de texto oscuro para el contenido */
-    padding: 20px;
-    border-radius: 8px;
-    box-sizing: border-box;
+    min-height: 50vh;
+    background-color: #fff;
+    color: #1a1a2e;
+    padding: 30px;
+    border: 5px solid #f92a82; 
+    box-shadow: 10px 10px 0px rgba(249, 42, 130, 0.3); 
+    border-radius: 4px;
 }
 
-/* ESTA REGLA SUSTITUYE A LA ORIGINAL */
 .welcome-message {
-    text-align: center;
-    /* El contenido del 'welcome-message' está ahora sobre fondo blanco,
-       así que le devolvemos el color de texto oscuro */
-    color: #1a1a2e; 
-    padding: 40px 0; /* Espacio para centrarlo verticalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
 }
 
 .welcome-message h2 {
-    font-size: 2rem;
-    color: #f92a82; /* Mantenemos un color temático para el título */
+    background-color: #f92a82;
+    color: #fff;
+    padding: 20px;
+    border: 3px solid #0f0c29;
+    box-shadow: 5px 5px 0px #0f0c29;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
 }
-/* La 'p' usará el color de #content-container */
 
+.welcome-message p {
+    background-color: #eee;
+    color: #1a1a2e;
+    padding: 15px;
+    border: 2px solid #1a1a2e;
+    box-shadow: 3px 3px 0px #ccc;
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
 
-/* --- Keyframes para Animaciones --- */
+.btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed #ccc; 
+}
 
-/* Animación de parpadeo para el título */
+.btn-volver {
+    display: inline-block;
+    background-color: #0f0c29;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    border: 3px solid #f92a82;
+    box-shadow: 5px 5px 0px #000;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-volver:hover {
+    background-color: #f92a82;
+    color: #fff;
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0px #000;
+}
+
+footer {
+    background-color: #0f0c29;
+    border-top: 4px solid #f92a82;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.7rem;
+    margin-top: auto; 
+}
+
 @keyframes flicker {
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
         text-shadow:
@@ -171,52 +224,32 @@ main {
         0 0 19px #f92a82,
         0 0 40px #f92a82;
     }
-    20%, 24%, 55% {
-        text-shadow: none;
-    }
+    20%, 24%, 55% { text-shadow: none; }
 }
 
-/* Animación del personaje moviéndose */
 @keyframes moveAcross {
-    0% {
-        left: -30px; /* Empieza fuera de la pantalla a la izquierda */
-        transform: scaleX(1); /* Mirando a la derecha */
-    }
-    49% {
-        transform: scaleX(1); /* Mantiene la dirección */
-    }
-    50% {
-        left: calc(100% + 30px); /* Llega al final de la pantalla */
-        transform: scaleX(-1); /* Se gira para mirar a la izquierda */
-    }
-    99% {
-        transform: scaleX(-1); /* Mantiene la dirección */
-    }
-    100% {
-        left: -30px; /* Vuelve al inicio */
-        transform: scaleX(1); /* Se gira de nuevo para el siguiente ciclo */
-    }
+    0% { transform: translateX(-50px) scaleX(1); }
+    49% { transform: translateX(90vw) scaleX(1); }
+    50% { transform: translateX(90vw) scaleX(-1); }
+    99% { transform: translateX(-50px) scaleX(-1); }
+    100% { transform: translateX(-50px) scaleX(1); }
 }
 
-/* --- REGLAS ELIMINADAS --- 
-   Ya no son necesarias:
-   - main.content-loaded .welcome-message
-   - main.content-loaded .content-frame
-*/
-
-/* --- NUEVAS REGLAS AÑADIDAS --- */
-
-/* Estilos para los mensajes de carga y error */
-/* (Aparecerán dentro de #content-container) */
 .loading-message, .error-message {
     text-align: center;
     font-size: 1.2rem;
     padding: 40px;
-    font-family: Arial, sans-serif; /* Fuente más legible para mensajes */
-    color: #555; /* Color oscuro sobre fondo blanco */
+    font-family: Arial, sans-serif;
+    color: #555;
+    border: 1px solid #ccc;
+    background: #f0f0f0;
+    margin: 20px auto;
+    max-width: 80%;
 }
 
-.error-message {
-    color: #D8000C; /* Un rojo estándar y fuerte */
-    font-weight: bold;
+.error-message { 
+    color: #D8000C; 
+    font-weight: bold; 
+    background-color: #FFBABA;
+    border-color: #D8000C;
 }

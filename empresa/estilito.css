@@ -1,114 +1,165 @@
 /* --- Estilos Globales y Tipografía --- */
-/* Inspirado en la paleta y fuentes de El País, usamos una fuente serif para titulares 
-   (como Georgia) y una sans-serif para el cuerpo del texto para máxima legibilidad. */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+/* Reset básico y Box Model */
+* {
     margin: 0;
-    background-color: #fdfdfd; /* Un blanco ligeramente apagado */
-    color: #333; /* Color de texto principal */
-    line-height: 1.6;
+    padding: 0;
+    box-sizing: border-box; /* Fundamental para el modelo de cajas */
 }
 
-/* --- Contenedor Principal --- */
-/* Centramos el contenido y le damos un ancho máximo para que sea cómodo de leer en pantallas grandes. */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f0f0; /* Fondo gris para resaltar la caja principal */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     padding: 20px;
 }
 
-/* --- Cabecera --- */
-/* La cabecera imita el estilo del logo de un periódico, con un borde inferior para separarlo del contenido. */
+/* --- Contenedor Principal (La "Hoja" o "Informe") --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #fff;
+    /* Estilo de caja fuerte: Borde sólido y sombra dura */
+    border: 3px solid #333;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.1); 
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espacio entre las cajas internas */
+}
+
+/* --- Cabecera (Caja Superior) --- */
 .header {
+    border-bottom: 4px double #333; /* Separador estilo periódico clásico */
     padding-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0; /* Línea separadora sutil */
-    margin-bottom: 30px;
     text-align: center;
 }
 
 .header h1 {
     font-family: "Georgia", "Times New Roman", Times, serif;
-    font-size: 3.5em; /* Tamaño grande y llamativo */
+    font-size: 3.5em;
     font-weight: 700;
-    margin: 20px 0 10px;
+    margin-bottom: 15px;
     color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .header p {
     font-size: 1.1em;
-    color: #666;
+    color: #555;
     max-width: 800px;
-    margin: 0 auto; /* Centrar el párrafo de introducción */
+    margin: 0 auto;
+    font-style: italic;
+    padding: 10px;
+    background-color: #f9f9f9; /* Fondo sutil para la intro */
+    border: 1px solid #ddd;
 }
 
 /* --- Grid de Proyectos --- */
-/* Usamos CSS Grid para crear una maquetación responsive que se adapta al tamaño de la pantalla. */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Columnas flexibles */
-    gap: 30px; /* Espacio entre las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-/* --- Tarjetas de Proyecto --- */
-/* Cada tarjeta tiene un borde y una sombra sutil para darle profundidad y separarla del fondo. */
+/* --- Tarjetas de Proyecto (Cajas Individuales) --- */
 .project-card {
     background-color: #fff;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Borde definido para cada proyecto */
+    border: 2px solid #333;
+    box-shadow: 5px 5px 0px #ccc; /* Sombra dura estilo retro/impreso */
     display: flex;
-    flex-direction: column; /* Organiza el contenido en vertical */
-    overflow: hidden; /* Asegura que el contenido no se salga de los bordes */
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 0px #999;
 }
 
 .project-card img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
     display: block;
+    border-bottom: 2px solid #333; /* Separación entre imagen y texto */
 }
 
 .project-content {
-    padding: 25px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Permite que el contenido ocupe el espacio disponible */
+    flex-grow: 1;
 }
 
 .project-content h2 {
     font-family: "Georgia", "Times New Roman", Times, serif;
-    font-size: 1.6em;
+    font-size: 1.5em;
     margin: 0 0 15px 0;
     color: #1a1a1a;
-    border-bottom: 2px solid #333; /* Línea sólida bajo el titular */
-    padding-bottom: 10px;
+    border-bottom: 2px solid #d32f2f; /* Toque de color corporativo */
+    padding-bottom: 5px;
+    display: inline-block;
 }
 
 .project-content p {
-    font-size: 1em;
-    color: #555;
-    flex-grow: 1; /* Empuja el footer de la tarjeta hacia abajo si es necesario */
+    font-size: 0.95em;
+    color: #444;
+    text-align: justify;
+}
+
+/* --- Botón Volver (Caja de Acción) --- */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #999;
+}
+
+.btn-volver {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    /* Estilo de botón físico */
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0px #d32f2f; 
+    transition: all 0.2s ease;
+}
+
+.btn-volver:hover {
+    background-color: #d32f2f;
+    color: #fff;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000;
 }
 
 /* --- Pie de Página --- */
 footer {
     text-align: center;
-    margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid #e0e0e0; /* Línea separadora */
+    border-top: 4px double #333;
     font-size: 0.9em;
-    color: #888;
+    color: #666;
+    margin-top: auto;
 }
 
-/* --- Adaptación para Móviles (Media Queries) --- */
+/* --- Responsive --- */
 @media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
     .header h1 {
         font-size: 2.5em;
-    }
-
-    .header p {
-        font-size: 1em;
-    }
-
-    .project-content h2 {
-        font-size: 1.4em;
     }
 }

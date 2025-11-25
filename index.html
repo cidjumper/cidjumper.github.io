@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal Actividades</title>
+    <meta name="description" content="Portal de actividades y retos de Desarrollo en aplicaciones Web hecho en el IES Inca Garcilaso.">
+    <meta name="keywords" content="HTML, CSS, Informática, IES Inca Garcilaso, Actividades, Restaurante, Testing">
+    <meta name="author" content="Jose Gómez Contreras">
+    <meta name="robots" content="index, follow">
+    
+    <title>Página Principal Actividades - IES Inca Garcilaso</title>
+    
     <link rel="stylesheet" href="style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -12,9 +19,11 @@
 <body>
 
     <header>
-        <h1>Mis Actividades</h1>
-        <div class="character-container">
-            <div class="character"></div>
+        <div class="header-box">
+            <h1>Mis Actividades</h1>
+            <div class="character-container">
+                <div class="character"></div>
+            </div>
         </div>
     </header>
 
@@ -24,7 +33,7 @@
             
             <li>
                 <a href="#">Actividades ▼</a> 
-                <ul>
+                <ul class="dropdown">
                     <li><a href="actividad1.html">Actividad 1</a></li>
                     <li><a href="actividad2.html">Actividad 2</a></li>
                     <li><a href="actividad3.html">Actividad 3</a></li>
@@ -34,7 +43,7 @@
 
             <li>
                 <a href="#">Varios ▼</a>
-                <ul>
+                <ul class="dropdown">
                     <li><a href="testing.html">Testing</a></li>
                     <li><a href="digiperoodico/index.html">DigiPeriódico</a></li>
                     <li><a href="empresa/index.html">Empresa</a></li>
@@ -45,130 +54,22 @@
             <li><a href="horario/index.html">Horario</a></li>
         </ul>
     </nav>
+
     <main>
-        <div id="content-container">
+        <section id="content-container">
             <div class="welcome-message">
                 <h2>¡Bienvenido a mi página!</h2>
+                <p>Jose Gomez Contreras - IES Inca Garcilaso</p>
                 <p>Pulsa en un menú para cargar un ejercicio</p>
             </div>
-        </div>
+        </section>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const contentContainer = document.getElementById('content-container');
-            // Guarda el HTML original del mensaje de bienvenida
-            const welcomeMessageHTML = contentContainer.innerHTML;
-
-            // Selecciona TODOS los enlaces de la navegación
-            const contentLinks = document.querySelectorAll('nav a[href$=".html"], nav a[href*="/index.html"]');
-
-            contentLinks.forEach(link => {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault(); // Evita que la página recargue
-                    loadContent(this.href); // Llama a la función de carga
-                });
-            });
-
-            // --- AÑADIDO: Manejo especial para el enlace "Inicio" ---
-            const homeLink = document.getElementById('home-link');
-            if (homeLink) {
-                homeLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    // 1. Restaura el mensaje de bienvenida
-                    contentContainer.innerHTML = welcomeMessageHTML;
-                    // 2. Elimina el CSS y JS de la página anterior
-                    document.getElementById('loaded-content-style')?.remove();
-                    document.querySelectorAll('.loaded-content-script').forEach(script => script.remove());
-                });
-            }
-
-
-            /**
-             * --- FUNCIÓN loadContent MEJORADA ---
-             * Ahora carga HTML, CSS y JavaScript.
-             */
-            async function loadContent(url) {
-                // 1. Muestra un mensaje de carga
-                contentContainer.innerHTML = '<p class="loading-message">Cargando...</p>';
-
-                // 2. Elimina CSS y Scripts dinámicos anteriores
-                document.getElementById('loaded-content-style')?.remove();
-                document.querySelectorAll('.loaded-content-script').forEach(script => script.remove());
-
-                // 3. Calcula la URL base para las rutas relativas
-                const baseUrl = url.substring(0, url.lastIndexOf('/') + 1);
-
-                try {
-                    // 4. Intenta cargar la URL
-                    const response = await fetch(url);
-                    if (!response.ok) {
-                        throw new Error(`Error HTTP ${response.status}: No se pudo encontrar el recurso.`);
-                    }
-                    const htmlText = await response.text();
-
-                    // 5. Parsea el HTML recibido
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(htmlText, 'text/html');
-
-                    // 6. Carga el CSS
-                    const stylesheetLink = doc.querySelector('link[rel="stylesheet"]');
-                    if (stylesheetLink) {
-                        const relativeHref = stylesheetLink.getAttribute('href');
-                        if (relativeHref) {
-                            // Resuelve la ruta completa (ej: "reto/reto1/style.css")
-                            const absoluteHref = new URL(relativeHref, baseUrl).href;
-                            
-                            const newLink = document.createElement('link');
-                            newLink.rel = 'stylesheet';
-                            newLink.id = 'loaded-content-style'; // ID para borrarlo luego
-                            newLink.href = absoluteHref;
-                            document.head.appendChild(newLink);
-                        }
-                    }
-
-                    // 7. Extrae el contenido principal
-                    const newContent = doc.querySelector('main')?.innerHTML || doc.body.innerHTML;
-                    if (!newContent) {
-                         throw new Error('No se encontró contenido principal en la página cargada.');
-                    }
-                    
-                    // 8. Inserta el nuevo contenido en el contenedor
-                    contentContainer.innerHTML = newContent;
-
-                    // 9. --- NUEVO: Busca y carga los Scripts ---
-                    // Se ejecuta DESPUÉS de insertar el HTML.
-                    const scripts = doc.querySelectorAll('script');
-                    
-                    scripts.forEach(script => {
-                        const newScript = document.createElement('script');
-                        // Clase para poder borrarlos luego
-                        newScript.className = 'loaded-content-script'; 
-
-                        if (script.src) {
-                            // Script externo (con 'src')
-                            const relativeSrc = script.getAttribute('src');
-                            // Resuelve la ruta (igual que con el CSS)
-                            const absoluteSrc = new URL(relativeSrc, baseUrl).href;
-                            newScript.src = absoluteSrc;
-                            newScript.defer = true; // 'defer' para ejecutar en orden
-                        } else {
-                            // Script inline (sin 'src')
-                            newScript.text = script.text;
-                        }
-                        
-                        // Añade el script al final del body para que se ejecute
-                        document.body.appendChild(newScript);
-                    });
-
-                } catch (error) {
-                    // 10. Si algo falla, muestra un mensaje de error
-                    console.error('Error al cargar el contenido:', error);
-                    contentContainer.innerHTML = `<p class="error-message">Error al cargar la página: ${error.message}</p>`;
-                }
-            }
-        });
-    </script>
+    <footer>
+        <div class="footer-box">
+            <p>&copy; 2025 Jose Gomez Contreras - Desarrollo de Aplicaciones Web</p>
+        </div>
+    </footer>
 
 </body>
 </html>

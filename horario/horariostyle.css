@@ -1,0 +1,109 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5; /* Un fondo gris claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+.schedule-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Estilos de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Bordes unidos */
+    table-layout: fixed; /* Ancho de columnas uniforme */
+}
+
+/* ... (Todos tus estilos de tabla y leyenda van aquí) ... */
+/* ... (Asegúrate de que el resto del archivo esté presente) ... */
+
+/* Clases de colores para las asignaturas */
+.prog { background-color: #fff9c4; } /* Amarillo */
+.bbdd { background-color: #ffe0b2; } /* Naranja claro / Tan */
+.ed   { background-color: #ffccbc; } /* Naranja */
+.sost { background-color: #f8bbd0; } /* Rosa */
+.si   { background-color: #b3e5fc; } /* Azul claro */
+.ipe  { background-color: #ffcdd2; } /* Rojo claro */
+.lm   { background-color: #c8e6c9; } /* Verde claro */
+.dig  { background-color: #cfd8dc; } /* Gris azulado */
+
+/* Estilos de la leyenda */
+.legend {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.legend h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+.legend p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}
+
+/* Estilos para los recuadros de color en la leyenda */
+.legend span {
+    display: inline-block;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #222; /* Texto oscuro para mejor legibilidad */
+    min-width: 50px; /* Ancho mínimo */
+    text-align: center;
+    margin-right: 10px;
+}
+
+
+/* --- ESTILOS DEL BOTÓN DE VOLVER (AÑADIDOS) --- */
+
+/* Contenedor para centrar el botón */
+.wrapper {
+    text-align: center;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+.btn-volver {
+    display: inline-block;
+    margin: 20px auto; /* Centrado y con margen */
+    background-color: #d32f2f; /* Rojo (estilo foster) */
+    color: white;
+    padding: 12px 25px;
+    /* Usamos 'Open Sans' o 'Roboto' si la primera no carga */
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    border-bottom: 3px solid #8f1717;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-volver:hover {
+    background-color: #e53935;
+    transform: translateY(-2px);
+}

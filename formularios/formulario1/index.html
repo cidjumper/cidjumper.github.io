@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Inscripción</title>
+    <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+    <div class="container">
+        <h1>HOJA DE INSCRIPCIÓN</h1>
+        <h2>EN LOS CICLOS FORMATIVOS DE GRADO SUPERIOR</h2>
+
+        <div class="form-section personal-data">
+            <h3 class="section-title">Datos Personales</h3>
+            <div class="grid-container">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+                
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos">
+                
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni">
+
+                <label for="localidad">Localidad de Nacimiento:</label>
+                <input type="text" id="localidad" name="localidad" value="Huelva">
+                
+                <label for="provincia">Provincia:</label>
+                <select id="provincia" name="provincia">
+                    <option value="Huelva">Huelva</option>
+                    <option value="Sevilla">Sevilla</option>
+                    <option value="Malaga">Málaga</option>
+                </select>
+                
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="text" id="fechaNacimiento" name="fechaNacimiento" placeholder="dd/mm/aaaa">
+                
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" class="full-width">
+                
+                <label for="codigoPostal">Código Postal:</label>
+                <input type="text" id="codigoPostal" name="codigoPostal">
+            </div>
+        </div>
+        
+        <div class="form-section access-form">
+            <h3 class="section-title">Forma de Acceso</h3>
+            <div class="access-options">
+                <div class="option-row">
+                    <label>
+                        <input type="radio" name="formaAcceso" value="Directo">
+                        Directo
+                    </label>
+                </div>
+                <div class="option-row">
+                    <label>
+                        <input type="radio" name="formaAcceso" value="BachilleratoLog">
+                        Bachillerato Log Modalidad
+                    </label>
+                    <input type="text" placeholder="Especifique">
+                </div>
+                <div class="option-row">
+                    <label>
+                        <input type="radio" name="formaAcceso" value="Experimental">
+                        Experimental
+                    </label>
+                    <input type="text" placeholder="Especifique">
+                </div>
+                <div class="option-row">
+                    <label>
+                        <input type="radio" name="formaAcceso" value="COOpcion">
+                        COO Opción
+                    </label>
+                    <input type="text" placeholder="Especifique">
+                </div>
+                <div class="option-row">
+                    <label>
+                        <input type="radio" name="formaAcceso" value="FP">
+                        FP
+                    </label>
+                    <input type="text" placeholder="Especifique">
+                </div>
+                <div class="option-row">
+                    <label>
+                        <input type="radio" name="formaAcceso" value="Otros">
+                        Otros (especifique)
+                    </label>
+                    <input type="text" placeholder="Especifique">
+                </div>
+                <div class="option-row">
+                    <label>
+                        <input type="radio" name="formaAcceso" value="PruebaLibre">
+                        Prueba Libre
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section attached-documents">
+            <h3 class="section-title">Documentos Adjuntados</h3>
+            <div class="document-options">
+                <label>
+                    <input type="checkbox" name="documento" value="FotocopiaDNI">
+                    Fotocopia DNI
+                </label>
+                <label>
+                    <input type="checkbox" name="documento" value="CertificadoAcademico">
+                    Certificado Académico
+                </label>
+                <label>
+                    <input type="checkbox" name="documento" value="OtrosDocumentos">
+                    Otros documentos (especificar)
+                </label>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button type="submit" class="submit-button">Enviar Solicitud</button>
+            <button type="reset" class="clear-button">Limpiar datos</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0; /* Asegura que no haya márgenes por defecto */
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+}
+
+.container {
+    width: 800px; /* Ancho fijo como en la imagen */
+    background-color: #fff;
+    padding: 20px; /* Reducido un poco para que se parezca más al original */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc; /* Borde general del contenedor */
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 5px;
+    text-transform: uppercase; /* Como en la imagen */
+}
+
+h1 {
+    font-size: 1.5em; /* Ajustado para que se parezca más */
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1em; /* Ajustado */
+    margin-bottom: 20px;
+}
+
+.form-section {
+    margin-bottom: 15px; /* Espacio entre secciones */
+    padding: 0; /* No padding directo en la sección */
+    border: none; /* Quitamos el borde general, se lo daremos al header y al contenido */
+}
+
+/* Estilo para los títulos de las secciones */
+.section-title {
+    font-weight: normal; /* El texto en la imagen no parece bold */
+    font-size: 0.9em;
+    padding: 5px 10px; /* Padding para que el texto del título no esté pegado */
+    margin: 0;
+    text-align: left;
+    color: white; /* Color de texto blanco para los títulos */
+    border: 1px solid; /* Cada título tiene un borde */
+    border-bottom: none; /* No hay borde inferior en el título */
+    display: inline-block; /* Para que el fondo del título no ocupe todo el ancho */
+    text-transform: uppercase; /* Como en la imagen */
+}
+
+/* Contenido de la sección */
+.section-content {
+    border: 1px solid; /* Borde para el contenido de la sección */
+    padding: 10px; /* Padding interno para el contenido */
+    background-color: white; /* Fondo blanco por defecto para el contenido */
+}
+
+
+/* Sección de Datos Personales (Gris Oscuro) */
+.personal-data .section-title {
+    background-color: #8c8c8c; /* Gris oscuro para el título */
+    border-color: #8c8c8c;
+}
+
+.personal-data .section-content {
+    background-color: #e0e0e0; /* Gris más claro para el contenido */
+    border-color: #8c8c8c;
+}
+
+.grid-container {
+    display: grid;
+    /* Define 6 columnas: Label (auto), Input (1fr), Label (auto), Input (1fr), Label (auto), Input (1fr) */
+    grid-template-columns: auto 1fr auto 1fr auto 1fr; 
+    gap: 8px 15px; /* Espacio entre filas y columnas */
+    align-items: center;
+    padding: 5px 0; /* Padding vertical dentro del grid */
+}
+
+.grid-container label {
+    font-weight: normal; /* El texto de las etiquetas no es bold en la imagen */
+    white-space: nowrap; /* Evita que el texto de la etiqueta se rompa */
+    font-size: 0.9em;
+}
+
+.grid-container input[type="text"], 
+.grid-container select {
+    padding: 4px; /* Un poco menos de padding para que se vea más compacto */
+    border: 1px solid #a0a0a0; /* Borde más oscuro para los inputs */
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+/* La fila de Dirección y Código Postal */
+/* La etiqueta Dirección en la imagen parece estar más a la izquierda */
+.grid-container .direction-label {
+    grid-column: 1 / 2; /* Ocupa la primera columna */
+}
+.grid-container .full-width-input {
+    grid-column: 2 / span 5; /* Ocupa desde la segunda columna hasta el final */
+}
+
+
+/* Sección de Forma de Acceso (Naranja) */
+.access-form .section-title {
+    background-color: #fd9733; /* Naranja medio para el título */
+    border-color: #fd9733;
+}
+
+.access-form .section-content {
+    background-color: #ffead1; /* Naranja claro para el contenido */
+    border-color: #fd9733;
+}
+
+.access-options {
+    padding: 5px 0;
+}
+
+.option-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px; /* Espacio entre filas de opciones */
+    gap: 10px; /* Espacio entre radio/checkbox y su texto, y entre texto y input */
+}
+
+.option-row label {
+    display: flex; /* Para alinear el radio/checkbox con su texto */
+    align-items: center;
+    min-width: 200px; /* Para que el texto de la opción tenga un ancho mínimo y los inputs se alineen */
+    font-size: 0.9em;
+}
+
+.option-row input[type="radio"] {
+    margin-right: 5px; /* Espacio entre el radio y su texto */
+}
+
+.option-row input[type="text"] {
+    flex-grow: 1; /* El input de texto ocupa el espacio restante */
+    padding: 3px;
+    border: 1px solid #ccc;
+    font-size: 0.9em;
+}
+
+/* Sección de Documentos Adjuntos (Rojo Granate) */
+.attached-documents .section-title {
+    background-color: #cf676e; /* Rojo Granate para el título */
+    border-color: #cf676e;
+}
+
+.attached-documents .section-content {
+    background-color: #fcebeb; /* Rojo muy claro para el contenido */
+    border-color: #cf676e;
+}
+
+.document-options {
+    padding: 5px 0;
+}
+
+.document-options label {
+    display: flex; /* Para alinear el checkbox con su texto */
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.document-options input[type="checkbox"] {
+    margin-right: 5px; /* Espacio entre el checkbox y su texto */
+}
+
+/* Botones de Acción */
+.action-buttons {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espacio entre los botones */
+}
+
+.action-buttons button {
+    padding: 8px 18px; /* Un poco menos de padding para que se vean como en la imagen */
+    border: 1px solid #a0a0a0; /* Borde sutil para los botones */
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 3px; /* Bordes ligeramente redondeados */
+    font-size: 0.9em;
+    background-color: #f0f0f0; /* Fondo gris claro para que destaquen menos */
+    color: #333;
+}
+
+/* Colores específicos de los botones si los queremos mantener, aunque en la imagen original son más genéricos */
+.submit-button {
+    /* background-color: #4CAF50; */ /* Si quieres el verde */
+    /* color: white; */
+}
+
+.clear-button {
+    /* background-color: #f44336; */ /* Si quieres el rojo */
+    /* color: white; */
+}
+
+/* Pequeño ajuste para el select en Datos Personales para que coincida con la imagen */
+.grid-container select {
+    appearance: none; /* Elimina la flecha de default del select */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13%205.4L147.2%20220.3%2018.8%2074.8a17.6%2017.6%200%200%0A0-25.3-

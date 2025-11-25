@@ -1,13 +1,21 @@
-
 /* --- Importamos una fuente de Google Fonts con estilo retro/diner --- */
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans:wght@400;700&display=swap');
+
+/* --- Box Model Global --- */
+* {
+    box-sizing: border-box; /* Fundamental para el modelo de cajas */
+}
 
 /* --- Estilos Generales del Body --- */
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Open Sans', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Fondo gris claro */
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* --- Estilo del Header (Cabecera) --- */
@@ -39,111 +47,211 @@ header img {
 
 /* --- Estilo del Contenido Principal --- */
 main {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 40px auto;
-    padding: 20px;
-    text-align: center;
+    padding: 0 20px;
+    width: 100%;
+    flex-grow: 1; /* Empuja el footer hacia abajo */
 }
 
+/* Título principal de la página */
 main h2 {
     font-family: 'Luckiest Guy', cursive;
-    font-size: 2.5em;
+    font-size: 3em;
     color: #d32f2f;
     text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    /* Efecto caja para el título */
+    background: #fff;
+    display: inline-block;
+    padding: 10px 30px;
+    border: 4px solid #000;
+    box-shadow: 5px 5px 0 #000;
+    width: 100%; 
 }
 
-/* --- Estilo de la Navegación con las Imágenes --- */
-nav {
-    margin-top: 30px;
+/* --- CAJAS CONTENEDORAS (NUEVO) --- */
+/* Clase genérica para envolver contenido en cajas blancas con borde negro */
+.card-box {
+    background-color: #fff;
+    border: 4px solid #000;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+}
+
+.intro-text {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* --- Estilo de la Navegación (Menú) --- */
+.menu-grid {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
 }
 
-nav a {
+.menu-item {
     display: block;
     text-decoration: none;
     border: 5px solid #000;
-    border-radius: 10px;
-    overflow: hidden;
+    background: #fff; /* Fondo blanco para la caja */
+    padding: 10px;      /* Marco tipo polaroid */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 
-nav a:hover {
-    transform: scale(1.05);
+.menu-item:hover {
+    transform: scale(1.05) rotate(-2deg); /* Pequeña rotación al hover */
     box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
+    border-color: #d32f2f;
 }
 
-nav img {
+.menu-item img {
     display: block;
     width: 100%;
+    max-width: 300px;
+    border: 2px solid #333;
 }
 
-/* --- ESTILOS ADICIONALES PARA PÁGINAS DE RECETAS --- */
+/* --- ESTILOS PARA RECETAS (DENTRO DE LAS CAJAS) --- */
 
-/* Contenedor principal de la receta para imagen e ingredientes */
-.recipe-content {
+.recipe-layout {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start; /* <-- CORREGIDO */
     gap: 30px;
-    margin-bottom: 30px;
-    text-align: left;
+    align-items: stretch;
 }
 
-/* Imagen principal de la receta */
-.recipe-image {
-    max-width: 400px;
-    border: 5px solid #000;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+/* Imagen de la receta */
+.recipe-image-container {
     flex: 1;
+    min-width: 300px;
 }
 
-/* Detalles de la receta (ingredientes) */
-.recipe-details {
+.recipe-image {
+    width: 100%;
+    border: 4px solid #000;
+    box-shadow: 5px 5px 0 #d32f2f;
+}
+
+/* Caja de Ingredientes */
+.ingredients-box {
     flex: 1.5;
+    background-color: #fff8e1; /* Un tono amarillo suave estilo nota */
+    border: 3px solid #000;
+    padding: 20px;
+    box-shadow: 5px 5px 0 #333;
 }
 
-/* Títulos de sección (Ingredientes, Preparación) */
 main h3 {
     font-family: 'Luckiest Guy', cursive;
     font-size: 1.8em;
     color: #333;
-    border-bottom: 3px solid #d32f2f;
+    border-bottom: 3px dashed #d32f2f;
     padding-bottom: 5px;
-    margin-top: 20px;
-    text-align: left;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
-/* Estilo para las listas de ingredientes y pasos */
-main ul, main ol {
-    padding-left: 25px;
-    line-height: 1.6;
+/* Listas de ingredientes */
+.ingredients-box ul {
+    list-style-type: square;
+    padding-left: 20px;
+    font-weight: bold;
 }
 
-main li {
+.ingredients-box li {
     margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
 }
 
-/* Estilo para el botón de "Volver" */
-.btn-volver {
-    display: inline-block;
-    margin-top: 40px;
+/* Caja de Preparación (Pasos) */
+.preparation-section {
+    margin-top: 30px;
+}
+
+.preparation-section ol {
+    list-style: none; /* Quitamos números por defecto para estilizarlos */
+    counter-reset: steps;
+    padding: 0;
+}
+
+/* Cada paso es una caja individual */
+.step-item {
+    background-color: #fff;
+    border: 3px solid #000;
+    margin-bottom: 15px;
+    padding: 15px 15px 15px 60px; /* Espacio a la izquierda para el número */
+    position: relative;
+    box-shadow: 3px 3px 0 #ddd;
+}
+
+.step-item::before {
+    counter-increment: steps;
+    content: counter(steps);
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     background-color: #d32f2f;
     color: white;
-    padding: 12px 25px;
-    font-family: 'Open Sans', sans-serif;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
     font-weight: bold;
+    font-family: 'Luckiest Guy', cursive;
+    border: 2px solid #000;
+}
+
+/* --- Botones --- */
+.actions-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-volver {
+    display: inline-block;
+    background-color: #d32f2f;
+    color: white;
+    padding: 15px 30px;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.2em;
+    text-transform: uppercase;
     text-decoration: none;
-    border-radius: 8px;
-    border-bottom: 3px solid #8f1717;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    border: 3px solid #000;
+    box-shadow: 5px 5px 0 #000;
+    transition: all 0.2s ease;
 }
 
 .btn-volver:hover {
-    background-color: #e53935;
-    transform: translateY(-2px);
+    background-color: #fff;
+    color: #d32f2f;
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 #000;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-top: 5px solid #d32f2f;
+    margin-top: auto;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 0.9em;
 }

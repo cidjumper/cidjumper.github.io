@@ -1,0 +1,256 @@
+/* --- Cargar fuentes locales --- */
+@font-face {
+  font-family: 'Young Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('recursos/fonts/young-serif/YoungSerif-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 100 900; 
+  font-display: swap;
+  src: url('recursos/fonts/outfit/Outfit-VariableFont_wght.ttf') format('ttf');
+}
+
+/* --- Variables de Color --- */
+:root {
+  --color-accent-brown: hsl(14, 45%, 36%);
+  --color-accent-pink: hsl(332, 51%, 60%);
+  --color-prep-title: hsl(332, 21%, 52%);
+
+  --color-white: hsl(0, 0%, 100%);
+  --color-eggshell-bg: hsl(30, 54%, 90%);  
+  --color-prep-bg: hsl(330, 100%, 98%); 
+  --color-light-grey: hsl(30, 18%, 87%); 
+  --color-text: hsl(30, 10%, 34%);         
+  --color-heading: hsl(24, 5%, 18%);      
+}
+
+/* --- Reset y Box Model --- */
+* {
+  box-sizing: border-box; /* Fundamental para el modelo de cajas */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-eggshell-bg); /* Fondo beige en todo momento para resaltar la caja principal */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrado vertical y horizontal */
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* --- CAJA PRINCIPAL (Recipe Card) --- */
+.recipe-card {
+  background-color: var(--color-white);
+  width: 100%;
+  max-width: 736px; /* Ancho máximo definido */
+  border-radius: 24px; /* Bordes redondeados */
+  padding: 2.5rem; /* Espacio interno de la tarjeta */
+  /* Sombra sutil para levantar la tarjeta del fondo */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Espacio vertical entre elementos hijos */
+}
+
+/* Imagen Principal (Caja de Imagen) */
+.recipe-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  /* Borde opcional para enmarcar la imagen */
+  border: 1px solid var(--color-light-grey); 
+}
+
+/* Contenido (Caja de Texto) */
+.recipe-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Separación consistente entre secciones */
+}
+
+/* --- Tipografía --- */
+h1 {
+  font-family: 'Young Serif', serif;
+  font-size: 2.5rem; 
+  color: var(--color-heading);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+h2 {
+  font-family: 'Young Serif', serif;
+  font-size: 1.75rem; 
+  color: var(--color-accent-brown);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--color-prep-title);
+  margin-bottom: 0.75rem;
+}
+
+/* --- SECCIONES INDIVIDUALES (Cajas Internas) --- */
+
+/* Caja de Tiempo de Preparación */
+.prep-time {
+  background-color: var(--color-prep-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  /* Borde sutil para definir la caja */
+  border: 1px solid rgba(0,0,0,0.05); 
+}
+
+.prep-time ul li {
+  list-style: none;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.prep-time li::before {
+  content: '•';
+  color: var(--color-accent-pink);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  transform: scale(1.2);
+}
+
+/* Caja de Ingredientes */
+.ingredients {
+  /* Opcional: Borde inferior para separar visualmente como caja */
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-light-grey);
+}
+
+.ingredients ul li {
+  list-style: none;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.ingredients li::before {
+  content: '•';
+  color: var(--color-accent-brown);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Caja de Instrucciones */
+.instructions {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-light-grey);
+}
+
+.instructions ol {
+  counter-reset: instructions-counter;
+  list-style: none;
+}
+
+.instructions li {
+  counter-increment: instructions-counter;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.instructions li::before {
+  content: counter(instructions-counter) '.';
+  color: var(--color-accent-brown);
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+}
+
+/* Caja de Nutrición */
+.nutrition table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nutrition tr {
+  border-bottom: 1px solid var(--color-light-grey);
+}
+
+.nutrition tr:last-child {
+  border-bottom: none;
+}
+
+.nutrition td {
+  padding: 1rem 2rem; /* Más padding para airear la tabla */
+}
+
+.nutrition td:last-child {
+  color: var(--color-accent-brown);
+  font-weight: 700;
+  text-align: right; /* Alinear valores a la derecha */
+}
+
+/* --- Botón Volver (Caja de Acción) --- */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    padding-top: 20px;
+}
+
+.btn-volver {
+    display: inline-block;
+    background-color: var(--color-accent-brown); /* Usamos el marrón del tema */
+    color: var(--color-white);
+    padding: 12px 30px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    /* Efecto de botón físico */
+    border-bottom: 4px solid #5a3026; /* Un tono más oscuro del marrón */
+    transition: transform 0.1s ease, border-bottom 0.1s ease;
+}
+
+.btn-volver:hover {
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+}
+
+/* --- Media Queries para Móvil (Responsive) --- */
+@media (max-width: 768px) {
+  body {
+    padding: 0; /* Sin padding en móvil para aprovechar espacio */
+    background-color: var(--color-white); 
+    display: block; /* Flujo normal */
+  }
+
+  .recipe-card {
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    max-width: 100%;
+  }
+  
+  .recipe-image {
+    border-radius: 0;
+    border: none;
+  }
+  
+  .recipe-content {
+    padding: 2rem;
+  }
+}
