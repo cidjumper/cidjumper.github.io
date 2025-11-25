@@ -1,0 +1,183 @@
+/* Estilos Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 30px;
+    font-style: italic;
+    color: #5c4021; 
+}
+
+.main-header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+}
+
+/* CAJAS AMARILLAS */
+.form-box {
+    background-color: #f2c05e; /* Mostaza */
+    border: none;
+    border-radius: 20px;
+    padding: 20px 40px;
+    margin-bottom: 25px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.form-box legend {
+    float: right;
+    font-family: cursive;
+    font-size: 1.1rem;
+    color: #4a3b2a;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    text-align: right; 
+    width: 100%;
+}
+
+/* Caja 1 */
+.form-grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 10px;
+    align-items: center;
+    clear: both;
+    padding-top: 20px;
+}
+
+.form-grid label {
+    font-weight: bold;
+    text-align: right;
+    padding-right: 15px;
+    color: #222;
+}
+
+.form-grid input, .form-grid select {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 2px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+}
+
+.radio-group label {
+    font-weight: normal;
+    text-align: left;
+    padding-right: 0;
+}
+
+/* Caja 2 */
+.info-interes label, .label-like {
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.componentes-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    clear: both;
+    padding-top: 10px;
+}
+
+.componentes-layout label { width: 70%; }
+.componentes-layout select { width: 150px; border: 1px solid #ccc; }
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.checkbox-grid label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.motivo-section textarea {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.peli-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.peli-section input {
+    flex-grow: 1;
+    padding: 5px;
+    border: none;
+}
+
+/* BOTONES */
+.botones-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.btn {
+    background-color: #5c4021;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.1s;
+    
+    /* Para que el <a> funcione como botón */
+    text-decoration: none;
+    display: inline-block;
+    font-family: inherit;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #4a331a;
+    transform: scale(1.05);
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.8rem;
+    color: #777;
+}
