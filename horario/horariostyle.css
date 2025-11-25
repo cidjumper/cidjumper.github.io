@@ -1,109 +1,194 @@
+/* --- Reset y Box Model Global --- */
+* {
+    box-sizing: border-box; /* Fundamental para el modelo de cajas */
+    margin: 0;
+    padding: 0;
+}
+
 /* Estilos generales */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0f2f5; /* Un fondo gris claro */
+    background-color: #f0f2f5; /* Fondo suave */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 20px;
+    min-height: 100vh;
+    padding: 40px 20px;
     color: #333;
 }
 
+/* --- Contenedor Principal (Main) --- */
 .schedule-container {
-    width: 95%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     background-color: #ffffff;
-    padding: 25px;
+    padding: 30px;
+    
+    /* Estilo de Caja Fuerte */
+    border: 3px solid #333;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.1); 
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Separación entre título, tabla y leyenda */
 }
 
-h2 {
+/* --- Cabecera del Horario --- */
+header {
     text-align: center;
-    margin-bottom: 20px;
-    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
 }
 
-/* Estilos de la tabla */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* --- Estilos de la Tabla (Caja de Datos) --- */
+.table-box {
+    overflow-x: auto; /* Para móviles */
+    border: 2px solid #333; /* Borde exterior de la tabla */
+}
+
 table {
     width: 100%;
-    border-collapse: collapse; /* Bordes unidos */
-    table-layout: fixed; /* Ancho de columnas uniforme */
+    border-collapse: collapse;
+    table-layout: fixed; 
+    min-width: 800px; /* Asegura que no se aplaste en móviles */
 }
 
-/* ... (Todos tus estilos de tabla y leyenda van aquí) ... */
-/* ... (Asegúrate de que el resto del archivo esté presente) ... */
+/* Cabeceras de tabla */
+thead th {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 1px solid #444;
+}
 
-/* Clases de colores para las asignaturas */
-.prog { background-color: #fff9c4; } /* Amarillo */
-.bbdd { background-color: #ffe0b2; } /* Naranja claro / Tan */
-.ed   { background-color: #ffccbc; } /* Naranja */
-.sost { background-color: #f8bbd0; } /* Rosa */
-.si   { background-color: #b3e5fc; } /* Azul claro */
-.ipe  { background-color: #ffcdd2; } /* Rojo claro */
-.lm   { background-color: #c8e6c9; } /* Verde claro */
-.dig  { background-color: #cfd8dc; } /* Gris azulado */
+/* Celdas del cuerpo */
+tbody th {
+    background-color: #e0e0e0;
+    color: #333;
+    font-weight: bold;
+    border: 1px solid #999;
+    padding: 10px;
+}
 
-/* Estilos de la leyenda */
-.legend {
-    margin-top: 25px;
-    padding: 20px;
+td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc; /* Bordes internos */
+    font-weight: bold;
+    color: #444;
+    vertical-align: middle;
+    transition: filter 0.2s;
+}
+
+td:hover {
+    filter: brightness(0.95); /* Efecto sutil al pasar el ratón */
+    cursor: default;
+}
+
+/* --- Clases de colores para las asignaturas (Cajas de color) --- */
+/* Se mantienen los colores originales pero se asegura que llenen la celda */
+.prog { background-color: #fff9c4; } 
+.bbdd { background-color: #ffe0b2; } 
+.ed   { background-color: #ffccbc; } 
+.sost { background-color: #f8bbd0; } 
+.si   { background-color: #b3e5fc; } 
+.ipe  { background-color: #ffcdd2; } 
+.lm   { background-color: #c8e6c9; } 
+.dig  { background-color: #cfd8dc; } 
+
+/* --- Estilos de la Leyenda (Caja Lateral/Inferior) --- */
+.legend-box {
     background-color: #fafafa;
-    border-radius: 5px;
-    border: 1px solid #eee;
+    border: 2px dashed #999; /* Estilo diferente para la leyenda */
+    padding: 20px;
+    border-radius: 4px;
 }
 
-.legend h3 {
-    margin-top: 0;
+.legend-box h2 {
+    font-size: 1.2rem;
     margin-bottom: 15px;
-    border-bottom: 2px solid #eee;
+    color: #555;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
+    display: inline-block;
 }
 
-.legend p {
-    margin: 8px 0;
-    font-size: 0.95rem;
+.legend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
 }
 
-/* Estilos para los recuadros de color en la leyenda */
-.legend span {
+.legend-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 8px;
+    border: 1px solid #eee;
+    box-shadow: 2px 2px 0 #eee;
+}
+
+/* Etiquetas de color en la leyenda */
+.legend-item span {
     display: inline-block;
     font-weight: 700;
-    padding: 3px 8px;
+    padding: 5px 10px;
     border-radius: 4px;
     border: 1px solid rgba(0,0,0,0.1);
-    color: #222; /* Texto oscuro para mejor legibilidad */
-    min-width: 50px; /* Ancho mínimo */
+    color: #222;
+    min-width: 70px;
     text-align: center;
     margin-right: 10px;
+    font-size: 0.8rem;
 }
 
-
-/* --- ESTILOS DEL BOTÓN DE VOLVER (AÑADIDOS) --- */
-
-/* Contenedor para centrar el botón */
-.wrapper {
+/* --- Botón Volver (Estilo Cajas) --- */
+.btn-container {
+    width: 100%;
     text-align: center;
-    width: 100%; /* Asegura que ocupe todo el ancho */
+    margin-top: 30px;
 }
 
 .btn-volver {
     display: inline-block;
-    margin: 20px auto; /* Centrado y con margen */
-    background-color: #d32f2f; /* Rojo (estilo foster) */
+    background-color: #d32f2f;
     color: white;
-    padding: 12px 25px;
-    /* Usamos 'Open Sans' o 'Roboto' si la primera no carga */
-    font-family: 'Open Sans', 'Roboto', sans-serif;
+    padding: 15px 30px;
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     text-decoration: none;
     border-radius: 8px;
-    border-bottom: 3px solid #8f1717;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    /* Efecto botón físico */
+    border: 2px solid #8f1717;
+    box-shadow: 4px 4px 0px #8f1717;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-volver:hover {
     background-color: #e53935;
-    transform: translateY(-2px);
+    transform: translate(2px, 2px); /* Se hunde al pulsar */
+    box-shadow: 2px 2px 0px #8f1717;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .schedule-container {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
 }

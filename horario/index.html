@@ -3,30 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horario 1º DAW</title>
+    
+    <meta name="author" content="Jose Gómez Contreras">
+    <meta name="description" content="Horario escolar del curso 1º de Desarrollo de Aplicaciones Web (DAW).">
+    <meta name="keywords" content="Horario, DAW, Informática, Programación, Clases">
+    <meta name="robots" content="index, follow">
+
+    <title>Horario 1º DAW - IES Inca Garcilaso</title>
+    
     <link rel="stylesheet" href="horariostyle.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">    
 </head>
 <body>
 
-    <div class="wrapper">
-    
-        <div class="schedule-container">
-            <h2>HORARIO 1º DE DAW</h2>
-            
+    <main class="schedule-container">
+        
+        <header>
+            <h1>Horario 1º de DAW</h1>
+        </header>
+        
+        <section class="table-box">
             <table>
                 <thead>
                     <tr>
-                        <th></th> <th>LUNES</th>
-                        <th>MARTES</th>
-                        <th>MIÉRCOLES</th>
-                        <th>JUEVES</th>
-                        <th>VIERNES</th>
+                        <th>Hora</th> 
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th>16:00 a 17:00</th>
+                        <th>16:00 - 17:00</th>
                         <td rowspan="3" class="prog">PROG</td>
                         <td rowspan="3" class="ed">ED</td>
                         <td rowspan="3" class="bbdd">BBDD</td>
@@ -34,13 +44,13 @@
                         <td rowspan="3" class="prog">PROG</td>
                     </tr>
                     <tr>
-                        <th>17:00 a 18:00</th>
-                        </tr>
+                        <th>17:00 - 18:00</th>
+                    </tr>
                     <tr>
-                        <th>18:00 a 19:00</th>
-                        </tr>
+                        <th>18:00 - 19:00</th>
+                    </tr>
                     <tr>
-                        <th>19:00 a 19:55</th>
+                        <th>19:00 - 19:55</th>
                         <td rowspan="2" class="si">SI</td>
                         <td rowspan="2" class="lm">LM</td>
                         <td class="dig">DIG</td>
@@ -48,34 +58,40 @@
                         <td rowspan="3" class="si">SI</td>
                     </tr>
                     <tr>
-                        <th>20:10 a 21:05</th>
+                        <th>20:10 - 21:05</th>
                         <td rowspan="2" class="ipe">IPE-1</td>
                         <td rowspan="2" class="prog">PROG</td>
-                        </tr>
+                    </tr>
                     <tr>
-                        <th>21:05 a 22:00</th>
+                        <th>21:05 - 22:00</th>
                         <td class="lm">LM</td>
                         <td class="ipe">IPE-1</td>
-                        </tr>
+                    </tr>
                 </tbody>
             </table>
+        </section>
 
-            <div class="Asignaturas">
-                <h3>Asignaturas</h3>
-                <p><span class="prog">PROG</span>: PROGRAMACIÓN</p>
-                <p><span class="bbdd">BBDD</span>: BASES DE DATOS</p>
-                <p><span class="ed">ED</span>: ENTORNOS DE DESARROLLO</p>
-                <p><span class="sost">SOST</span>: SOSTENIBILIDAD</p>
-                <p><span class="si">SI</span>: SISTEMAS INFORMÁTICOS</p>
-                <p><span class="ipe">IPE-1</span>: ITINERARIO PERSONAL PARA LA EMPLEABILIDAD 1</p>
-                <p><span class="lm">LM</span>: LENGUAJES DE MARCAS</p>
-                <p><span class="dig">DIG</span>: DIGITALIZACIÓN</p>
+        <aside class="legend-box">
+            <h2>Asignaturas</h2>
+            <div class="legend-grid">
+                <div class="legend-item"><span class="prog">PROG</span> Programación</div>
+                <div class="legend-item"><span class="bbdd">BBDD</span> Bases de Datos</div>
+                <div class="legend-item"><span class="ed">ED</span> Entornos de Desarrollo</div>
+                <div class="legend-item"><span class="sost">SOST</span> Sostenibilidad</div>
+                <div class="legend-item"><span class="si">SI</span> Sistemas Informáticos</div>
+                <div class="legend-item"><span class="ipe">IPE-1</span> Itinerario Personal (Emp.)</div>
+                <div class="legend-item"><span class="lm">LM</span> Lenguajes de Marcas</div>
+                <div class="legend-item"><span class="dig">DIG</span> Digitalización</div>
             </div>
+        </aside>
+
+        <div class="btn-container">
+            <a href="../index.html" class="btn-volver">
+                Volver al Inicio
+            </a>
         </div>
 
-        <a href="../index.html" class="btn-volver">
-            Volver al Inicio
-        </a>
-    
-    </div> </body>
+    </main>
+
+</body>
 </html>
