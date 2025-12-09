@@ -1,9 +1,9 @@
-/* --- Importamos una fuente de Google Fonts con estilo retro/diner --- */
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans:wght@400;700&display=swap');
+/* --- Importamos fuentes: Luckiest Guy (Retro) y Playfair Display (Elegante para forms) --- */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Playfair+Display:wght@700&family=Open+Sans:wght@400;700&family=Roboto:wght@300;400&display=swap');
 
 /* --- Box Model Global --- */
 * {
-    box-sizing: border-box; /* Fundamental para el modelo de cajas */
+    box-sizing: border-box;
 }
 
 /* --- Estilos Generales del Body --- */
@@ -11,7 +11,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
-    background-color: #f4f4f4; /* Fondo gris claro */
+    background-color: #f4f4f4;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -51,7 +51,7 @@ main {
     margin: 40px auto;
     padding: 0 20px;
     width: 100%;
-    flex-grow: 1; /* Empuja el footer hacia abajo */
+    flex-grow: 1;
 }
 
 /* Título principal de la página */
@@ -62,7 +62,6 @@ main h2 {
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 30px;
-    /* Efecto caja para el título */
     background: #fff;
     display: inline-block;
     padding: 10px 30px;
@@ -71,8 +70,7 @@ main h2 {
     width: 100%; 
 }
 
-/* --- CAJAS CONTENEDORAS (NUEVO) --- */
-/* Clase genérica para envolver contenido en cajas blancas con borde negro */
+/* --- CAJAS CONTENEDORAS (Estilo Retro Original) --- */
 .card-box {
     background-color: #fff;
     border: 4px solid #000;
@@ -99,14 +97,14 @@ main h2 {
     display: block;
     text-decoration: none;
     border: 5px solid #000;
-    background: #fff; /* Fondo blanco para la caja */
-    padding: 10px;      /* Marco tipo polaroid */
+    background: #fff;
+    padding: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
 
 .menu-item:hover {
-    transform: scale(1.05) rotate(-2deg); /* Pequeña rotación al hover */
+    transform: scale(1.05) rotate(-2deg);
     box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
     border-color: #d32f2f;
 }
@@ -118,8 +116,7 @@ main h2 {
     border: 2px solid #333;
 }
 
-/* --- ESTILOS PARA RECETAS (DENTRO DE LAS CAJAS) --- */
-
+/* --- ESTILOS PARA RECETAS --- */
 .recipe-layout {
     display: flex;
     flex-wrap: wrap;
@@ -127,7 +124,6 @@ main h2 {
     align-items: stretch;
 }
 
-/* Imagen de la receta */
 .recipe-image-container {
     flex: 1;
     min-width: 300px;
@@ -139,10 +135,9 @@ main h2 {
     box-shadow: 5px 5px 0 #d32f2f;
 }
 
-/* Caja de Ingredientes */
 .ingredients-box {
     flex: 1.5;
-    background-color: #fff8e1; /* Un tono amarillo suave estilo nota */
+    background-color: #fff8e1;
     border: 3px solid #000;
     padding: 20px;
     box-shadow: 5px 5px 0 #333;
@@ -158,7 +153,6 @@ main h3 {
     margin-bottom: 20px;
 }
 
-/* Listas de ingredientes */
 .ingredients-box ul {
     list-style-type: square;
     padding-left: 20px;
@@ -171,23 +165,21 @@ main h3 {
     padding-bottom: 5px;
 }
 
-/* Caja de Preparación (Pasos) */
 .preparation-section {
     margin-top: 30px;
 }
 
 .preparation-section ol {
-    list-style: none; /* Quitamos números por defecto para estilizarlos */
+    list-style: none;
     counter-reset: steps;
     padding: 0;
 }
 
-/* Cada paso es una caja individual */
 .step-item {
     background-color: #fff;
     border: 3px solid #000;
     margin-bottom: 15px;
-    padding: 15px 15px 15px 60px; /* Espacio a la izquierda para el número */
+    padding: 15px 15px 15px 60px;
     position: relative;
     box-shadow: 3px 3px 0 #ddd;
 }
@@ -211,7 +203,7 @@ main h3 {
     border: 2px solid #000;
 }
 
-/* --- Botones --- */
+/* --- Botones Genéricos --- */
 .actions-container {
     margin-top: 40px;
     display: flex;
@@ -254,4 +246,162 @@ footer {
 .footer-content p {
     margin: 5px 0;
     font-size: 0.9em;
+}
+
+/* ==========================================================================
+   ESTILOS DE FORMULARIO - TEMA KYOSHIN (RETRO JAPONÉS)
+   ========================================================================== */
+
+/* Contenedor del formulario: Estilo Caja Retro */
+.form-wrapper {
+    background-color: #fff;
+    padding: 40px 50px;
+    position: relative;
+    border: 4px solid #000; /* Borde grueso negro */
+    box-shadow: 10px 10px 0 #d32f2f; /* Sombra sólida roja */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Título: Fuente divertida e impactante */
+.form-title {
+    font-family: 'Luckiest Guy', cursive;
+    color: #d32f2f;
+    font-size: 2.5em; /* Más grande */
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #000;
+    border-bottom: 3px dashed #000;
+    padding-bottom: 15px;
+}
+
+/* Icono de cerrar X */
+.close-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    background: #d32f2f;
+    color: white;
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.close-icon:hover {
+    transform: scale(1.1) rotate(90deg);
+    background: #fff;
+    color: #d32f2f;
+}
+
+/* Layout del formulario */
+.kyoshin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group input, 
+.input-group select {
+    width: 50%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.full-width input, 
+.full-width textarea {
+    width: 100%;
+}
+
+/* Inputs: Estilo papel de arroz con bordes fuertes */
+.kyoshin-form input, 
+.kyoshin-form select, 
+.kyoshin-form textarea {
+    padding: 15px;
+    border: 3px solid #000;
+    background-color: #fff8e1; /* Color crema suave (como las gyozas/ingredientes) */
+    font-size: 16px;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    outline: none;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    transition: all 0.2s;
+}
+
+.kyoshin-form input:focus, 
+.kyoshin-form select:focus, 
+.kyoshin-form textarea:focus {
+    border-color: #d32f2f;
+    background-color: #fff;
+    box-shadow: 5px 5px 0 #000;
+    transform: translate(-2px, -2px);
+}
+
+/* Botón del formulario: Estilo Botón Rojo Kyoshin */
+.btn-form-elegante {
+    background-color: #d32f2f;
+    color: white;
+    border: 3px solid #000;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    font-family: 'Luckiest Guy', cursive; /* Fuente retro */
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 5px 5px 0 #000;
+    transition: all 0.2s ease;
+    width: 100%; /* Botón ancho para móviles */
+}
+
+.btn-form-elegante:hover {
+    background-color: #fff;
+    color: #d32f2f;
+    box-shadow: 3px 3px 0 #000;
+    transform: translate(2px, 2px);
+}
+
+/* Texto de privacidad */
+.privacy-text {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+.privacy-text a {
+    color: #d32f2f;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .input-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .input-group input, 
+    .input-group select {
+        width: 100%;
+    }
+    .form-wrapper {
+        padding: 20px;
+        box-shadow: 5px 5px 0 #d32f2f;
+    }
 }

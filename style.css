@@ -32,9 +32,11 @@ header h1 {
     margin-bottom: 20px;
 }
 
+/* --- INICIO DE CAMBIOS DE ANIMACIÓN --- */
+
 .character-container {
     width: 100%;
-    height: 50px;
+    height: 60px; /* Un poco más alto para que quepan los sprites */
     position: relative;
     border-top: 2px dashed #444; 
     background-color: rgba(255, 255, 255, 0.05);
@@ -42,17 +44,60 @@ header h1 {
     overflow: hidden;
 }
 
+/* Estilos base para ambos personajes */
 .character {
-    width: 40px;
-    height: 40px;
-    background-color: #fbd238;
-    border: 4px solid #000;
-    box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
+    width: 50px;  /* Ajusta según el tamaño de tu GIF */
+    height: 50px; /* Ajusta según el tamaño de tu GIF */
     position: absolute;
     bottom: 5px;
-    left: 0;
-    animation: moveAcross 10s linear infinite; 
+    background-repeat: no-repeat;
+    background-size: contain; /* Ajusta la imagen al div */
+    image-rendering: pixelated; /* Mantiene el estilo retro nítido */
+    
+    /* Animación compartida: 14s para ir y volver */
+    animation: moveAcross 14s linear infinite; 
 }
+
+/* Estilos específicos para Aeris */
+.aeris {
+    /* IMPORTANTE: Asegúrate de tener aeris.gif en la carpeta */
+    background-image: url('aeris.gif'); 
+    left: 60px; /* Ella va delante */
+    z-index: 2;
+}
+
+/* Estilos específicos para Cloud */
+.cloud {
+    /* IMPORTANTE: Asegúrate de tener cloud.gif en la carpeta */
+    background-image: url('cloud.gif');
+    left: 0px; /* Él va detrás */
+    z-index: 1;
+}
+
+/* Animación: Caminar a la derecha, girar, caminar a la izquierda */
+@keyframes moveAcross {
+    0% { 
+        transform: translateX(0) scaleX(1); 
+    }
+    45% { 
+        /* Van casi hasta el final de la pantalla */
+        transform: translateX(calc(100vw - 120px)) scaleX(1); 
+    }
+    50% { 
+        /* Giro instantáneo */
+        transform: translateX(calc(100vw - 120px)) scaleX(-1); 
+    }
+    95% { 
+        /* Vuelta al inicio */
+        transform: translateX(0) scaleX(-1); 
+    }
+    100% { 
+        /* Giro para reiniciar */
+        transform: translateX(0) scaleX(1); 
+    }
+}
+
+/* --- FIN DE CAMBIOS DE ANIMACIÓN --- */
 
 nav {
     background-color: #161625;
@@ -225,14 +270,6 @@ footer {
         0 0 40px #f92a82;
     }
     20%, 24%, 55% { text-shadow: none; }
-}
-
-@keyframes moveAcross {
-    0% { transform: translateX(-50px) scaleX(1); }
-    49% { transform: translateX(90vw) scaleX(1); }
-    50% { transform: translateX(90vw) scaleX(-1); }
-    99% { transform: translateX(-50px) scaleX(-1); }
-    100% { transform: translateX(-50px) scaleX(1); }
 }
 
 .loading-message, .error-message {

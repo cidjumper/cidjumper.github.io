@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Formulario para reservar mesa en el Restaurante Kyoshin.">
+    <meta name="keywords" content="reserva, mesa, restaurante, cita, formulario, kyoshin">
+    <meta name="author" content="Jose Gómez Contreras">
+    
+    <title>Reservar Mesa - Kyoshin</title>
+    <link rel="stylesheet" href="foster.css">
+</head>
+<body>
+
+    <header>
+        <h1>RESTAURANTE KYOSHIN</h1>
+    </header>
+
+    <main>
+        <div class="form-wrapper">
+            <span class="close-icon" onclick="window.location.href='index.html'">&times;</span>
+            <h2 class="form-title">📅 ¡Reserva tu Mesa!</h2>
+            
+            <form class="kyoshin-form" action="#" method="POST">
+                <div class="input-group">
+                    <input type="text" placeholder="Nombre del Samurai" required>
+                    <input type="number" placeholder="Nº de Personas" min="1" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" placeholder="Correo Electrónico" required>
+                    <input type="tel" placeholder="Teléfono de contacto" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" onfocus="(this.type='date')" placeholder="Fecha de la batalla">
+                    <input type="text" onfocus="(this.type='time')" placeholder="Hora de llegada">
+                </div>
+
+                <div class="full-width">
+                    <textarea placeholder="Mensaje adicional (Alergias, trona, mesa tranquila...)" rows="3"></textarea>
+                </div>
+
+                <div class="actions-container">
+                    <button type="submit" class="btn-form-elegante">CONFIRMAR RESERVA</button>
+                </div>
+            </form>
+            <p class="privacy-text">Sus datos están protegidos por el honor de Kyoshin. <a href="#">Política de privacidad</a></p>
+        </div>
+        
+        <div class="actions-container">
+            <a href="index.html" class="btn-volver">Volver al Inicio</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; Jose Gomez Contreras - Restaurante Kyoshin</p>
+        </div>
+    </footer>
+
+</body>
+</html>
