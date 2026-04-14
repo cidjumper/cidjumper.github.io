@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parte 1 · Modelo gráfico del DOM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../comun.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="pagina-actividad">
+  <header class="cabecera-actividad">
+    <h1>Parte 1 · Modelo gráfico del DOM</h1>
+    <p>Representación visual del árbol DOM del código dado en el boletín.</p>
+  </header>
+
+  <main class="panel-actividad">
+
+<section>
+  <h2>HTML del ejercicio</h2>
+  <div class="dom-arbol">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Título de la Página WEB&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Encabezado de la página web&lt;/h1&gt;
+    &lt;p&gt;Esto es un párrafo&lt;/p&gt;
+    &lt;div&gt;
+      &lt;table&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Celda 1&lt;/td&gt;
+          &lt;td&gt;Celda 2&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+  </div>
+</section>
+
+<section class="tarjeta-ayuda">
+  <h2>Modelo gráfico del DOM</h2>
+  <p>Aquí tienes una representación visual del árbol DOM del código del boletín.</p>
+</section>
+
+<section class="dom-cajas">
+  <div class="dom-nodo">documento</div>
+  <div class="dom-nodo">html</div>
+  <div class="dom-hijos">
+    <div>
+      <div class="dom-nodo">head</div>
+      <div class="dom-hijos">
+        <div class="dom-nodo">title</div>
+      </div>
+    </div>
+    <div>
+      <div class="dom-nodo">body</div>
+      <div class="dom-hijos">
+        <div class="dom-nodo">h1</div>
+        <div class="dom-nodo">p</div>
+        <div>
+          <div class="dom-nodo">div</div>
+          <div class="dom-hijos">
+            <div class="dom-nodo">table</div>
+            <div class="dom-hijos">
+              <div class="dom-nodo">tr</div>
+              <div class="dom-hijos">
+                <div class="dom-nodo">td (Celda 1)</div>
+                <div class="dom-nodo">td (Celda 2)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tarjeta-ayuda">
+    <p><strong>Idea clave:</strong> el DOM funciona como un árbol. Cada etiqueta HTML es un nodo y puede tener nodos hijos dentro.</p>
+  </div>
+</section>
+
+    <div class="fila-botones volver-inicio">
+      <a class="boton-enlace" href="../parte1/index.html">Volver a la Parte 1</a>
+      <a class="boton-enlace" href="../../index.html">Volver a la página principal</a>
+    </div>
+  </main>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

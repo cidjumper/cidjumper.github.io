@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parte 3 · Actividad 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../comun.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="pagina-actividad">
+  <header class="cabecera-actividad">
+    <h1>Parte 3 · Actividad 1</h1>
+    <p>Formulario con nombre, apellidos y edad para mostrar mayoría de edad y año de nacimiento.</p>
+  </header>
+
+  <main class="panel-actividad">
+
+<h2>Datos de una persona</h2>
+<div class="zona-controles">
+  <div class="grupo-campo">
+    <label for="nombre">Nombre</label>
+    <input id="nombre" type="text" placeholder="Escribe el nombre">
+  </div>
+  <div class="grupo-campo">
+    <label for="apellidos">Apellidos</label>
+    <input id="apellidos" type="text" placeholder="Escribe los apellidos">
+  </div>
+  <div class="grupo-campo">
+    <label for="edad">Edad</label>
+    <input id="edad" type="number" min="0" placeholder="Escribe la edad">
+  </div>
+</div>
+<div class="fila-botones">
+  <button id="boton-mostrar-datos">Mostrar resultado</button>
+</div>
+<div id="resultado" class="resultado"></div>
+
+    <div class="fila-botones volver-inicio">
+      <a class="boton-enlace" href="../parte3/index.html">Volver a la Parte 3</a>
+      <a class="boton-enlace" href="../../index.html">Volver a la página principal</a>
+    </div>
+  </main>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

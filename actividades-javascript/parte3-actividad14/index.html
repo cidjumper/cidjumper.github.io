@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parte 3 · Actividad 14</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../comun.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="pagina-actividad">
+  <header class="cabecera-actividad">
+    <h1>Parte 3 · Actividad 14</h1>
+    <p>Calculadora básica con suma, resta, multiplicación y división.</p>
+  </header>
+
+  <main class="panel-actividad">
+
+<h2>Calculadora</h2>
+<div class="zona-controles">
+  <div class="grupo-campo">
+    <label for="numero-uno">Primer número</label>
+    <input id="numero-uno" type="number" step="0.01" placeholder="Escribe el primer número">
+  </div>
+  <div class="grupo-campo">
+    <label for="numero-dos">Segundo número</label>
+    <input id="numero-dos" type="number" step="0.01" placeholder="Escribe el segundo número">
+  </div>
+</div>
+<div class="fila-botones">
+  <button data-operacion="sumar" class="boton-operacion">Sumar</button>
+  <button data-operacion="restar" class="boton-operacion">Restar</button>
+  <button data-operacion="multiplicar" class="boton-operacion">Multiplicar</button>
+  <button data-operacion="dividir" class="boton-operacion">Dividir</button>
+</div>
+<div id="resultado" class="resultado"></div>
+
+    <div class="fila-botones volver-inicio">
+      <a class="boton-enlace" href="../parte3/index.html">Volver a la Parte 3</a>
+      <a class="boton-enlace" href="../../index.html">Volver a la página principal</a>
+    </div>
+  </main>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

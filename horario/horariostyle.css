@@ -1,14 +1,14 @@
-/* --- Reset y Box Model Global --- */
+
 * {
-    box-sizing: border-box; /* Fundamental para el modelo de cajas */
+    box-sizing: border-box; 
     margin: 0;
     padding: 0;
 }
 
-/* Estilos generales */
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0f2f5; /* Fondo suave */
+    background-color: #f0f2f5; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@ body {
     color: #333;
 }
 
-/* --- Contenedor Principal (Main) --- */
+
 .schedule-container {
     width: 100%;
     max-width: 1200px;
@@ -25,16 +25,16 @@ body {
     background-color: #ffffff;
     padding: 30px;
     
-    /* Estilo de Caja Fuerte */
+    
     border: 3px solid #333;
     box-shadow: 10px 10px 0px rgba(0,0,0,0.1); 
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Separación entre título, tabla y leyenda */
+    gap: 30px; 
 }
 
-/* --- Cabecera del Horario --- */
+
 header {
     text-align: center;
     border-bottom: 2px solid #eee;
@@ -50,20 +50,20 @@ h1 {
     margin: 0;
 }
 
-/* --- Estilos de la Tabla (Caja de Datos) --- */
+
 .table-box {
-    overflow-x: auto; /* Para móviles */
-    border: 2px solid #333; /* Borde exterior de la tabla */
+    overflow-x: auto; 
+    border: 2px solid #333; 
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed; 
-    min-width: 800px; /* Asegura que no se aplaste en móviles */
+    min-width: 800px; 
 }
 
-/* Cabeceras de tabla */
+
 thead th {
     background-color: #333;
     color: #fff;
@@ -73,7 +73,7 @@ thead th {
     border: 1px solid #444;
 }
 
-/* Celdas del cuerpo */
+
 tbody th {
     background-color: #e0e0e0;
     color: #333;
@@ -85,7 +85,7 @@ tbody th {
 td {
     text-align: center;
     padding: 10px;
-    border: 1px solid #ccc; /* Bordes internos */
+    border: 1px solid #ccc; 
     font-weight: bold;
     color: #444;
     vertical-align: middle;
@@ -93,12 +93,12 @@ td {
 }
 
 td:hover {
-    filter: brightness(0.95); /* Efecto sutil al pasar el ratón */
+    filter: brightness(0.95); 
     cursor: default;
 }
 
-/* --- Clases de colores para las asignaturas (Cajas de color) --- */
-/* Se mantienen los colores originales pero se asegura que llenen la celda */
+
+
 .prog { background-color: #fff9c4; } 
 .bbdd { background-color: #ffe0b2; } 
 .ed   { background-color: #ffccbc; } 
@@ -108,10 +108,10 @@ td:hover {
 .lm   { background-color: #c8e6c9; } 
 .dig  { background-color: #cfd8dc; } 
 
-/* --- Estilos de la Leyenda (Caja Lateral/Inferior) --- */
+
 .legend-box {
     background-color: #fafafa;
-    border: 2px dashed #999; /* Estilo diferente para la leyenda */
+    border: 2px dashed #999; 
     padding: 20px;
     border-radius: 4px;
 }
@@ -141,7 +141,7 @@ td:hover {
     box-shadow: 2px 2px 0 #eee;
 }
 
-/* Etiquetas de color en la leyenda */
+
 .legend-item span {
     display: inline-block;
     font-weight: 700;
@@ -155,7 +155,7 @@ td:hover {
     font-size: 0.8rem;
 }
 
-/* --- Botón Volver (Estilo Cajas) --- */
+
 .btn-container {
     width: 100%;
     text-align: center;
@@ -171,7 +171,7 @@ td:hover {
     font-weight: bold;
     text-decoration: none;
     border-radius: 8px;
-    /* Efecto botón físico */
+    
     border: 2px solid #8f1717;
     box-shadow: 4px 4px 0px #8f1717;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -179,11 +179,11 @@ td:hover {
 
 .btn-volver:hover {
     background-color: #e53935;
-    transform: translate(2px, 2px); /* Se hunde al pulsar */
+    transform: translate(2px, 2px); 
     box-shadow: 2px 2px 0px #8f1717;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .schedule-container {
         padding: 15px;

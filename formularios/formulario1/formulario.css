@@ -1,5 +1,5 @@
-/* 7) Uso de clases en css */
-/* Reset básico y Box Model */
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,13 +16,13 @@ body {
     color: #000;
 }
 
-/* Contenedor Principal */
+
 .main-container {
     width: 900px;
     margin: 0 auto;
 }
 
-/* Header */
+
 .form-header {
     text-align: center;
     margin-bottom: 25px;
@@ -39,7 +39,7 @@ body {
     font-weight: bold;
 }
 
-/* Estilos Generales para Fieldset (Cajas) */
+
 fieldset.bloque {
     border: 1px solid #777;
     margin-bottom: 10px;
@@ -55,7 +55,7 @@ fieldset.bloque legend {
     font-weight: normal;
 }
 
-/* --- DATOS PERSONALES (GRIS) --- */
+
 fieldset.datos-personales {
     background-color: #a6a6a6;
     border-color: #555;
@@ -94,7 +94,7 @@ fieldset.datos-personales legend {
     grid-column: span 2;
 }
 
-/* --- FORMA DE ACCESO (NARANJA) --- */
+
 fieldset.forma-acceso {
     background-color: #f4b084;
     border-color: #c65911;
@@ -142,7 +142,7 @@ fieldset.forma-acceso legend {
     max-width: 300px;
 }
 
-/* --- DOCUMENTOS ADJUNTADOS (ROJO/VINO) --- */
+
 fieldset.documentos {
     background-color: #b06265;
     border-color: #632523;
@@ -169,7 +169,7 @@ fieldset.documentos legend {
     flex-grow: 1;
 }
 
-/* --- BOTONES --- */
+
 .botones-accion {
     margin-top: 20px;
     display: flex;
@@ -178,7 +178,7 @@ fieldset.documentos legend {
     align-items: center;
 }
 
-/* Estilo unificado para button y el enlace volver */
+
 button, .btn-volver {
     background-color: #f2f2f2;
     border: 1px solid #777;

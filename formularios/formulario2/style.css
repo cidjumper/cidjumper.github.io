@@ -1,4 +1,4 @@
-/* Estilos Base */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -32,9 +32,9 @@ body {
     max-width: 800px;
 }
 
-/* CAJAS AMARILLAS */
+
 .form-box {
-    background-color: #f2c05e; /* Mostaza */
+    background-color: #f2c05e; 
     border: none;
     border-radius: 20px;
     padding: 20px 40px;
@@ -54,7 +54,7 @@ body {
     width: 100%;
 }
 
-/* Caja 1 */
+
 .form-grid {
     display: grid;
     grid-template-columns: 150px 1fr;
@@ -89,7 +89,7 @@ body {
     padding-right: 0;
 }
 
-/* Caja 2 */
+
 .info-interes label, .label-like {
     font-weight: bold;
     color: #222;
@@ -143,7 +143,7 @@ body {
     border: none;
 }
 
-/* BOTONES */
+
 .botones-container {
     display: flex;
     justify-content: center;
@@ -164,7 +164,7 @@ body {
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     transition: transform 0.1s;
     
-    /* Para que el <a> funcione como botón */
+    
     text-decoration: none;
     display: inline-block;
     font-family: inherit;
