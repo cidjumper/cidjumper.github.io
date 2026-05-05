@@ -1,15 +1,21 @@
-const botonMostrarPersona = document.getElementById('boton-mostrar-persona');
-const resultado = document.getElementById('resultado');
+'use strict';
 
-botonMostrarPersona.addEventListener('click', function () {
-  const nombre = document.getElementById('nombre').value.trim();
-  const provincia = document.getElementById('provincia').value;
-  const pueblo = document.getElementById('pueblo').value.trim();
+document.addEventListener('DOMContentLoaded', () => {
+  const botonMostrarPersona = document.getElementById('boton-mostrar-persona');
+  const resultado = document.getElementById('resultado');
 
-  if (!nombre || !provincia || !pueblo) {
-    resultado.textContent = 'Debes completar nombre, provincia y pueblo.';
-    return;
-  }
+  botonMostrarPersona.addEventListener('click', () => {
+    const persona = {
+      nombre: document.getElementById('nombre').value.trim(),
+      provincia: document.getElementById('provincia').value,
+      pueblo: document.getElementById('pueblo').value.trim()
+    };
 
-  resultado.textContent = nombre + ', eres ' + provincia + ' de ' + pueblo + '.';
+    if (!persona.nombre || !persona.provincia || !persona.pueblo) {
+      resultado.textContent = 'Debes completar nombre, provincia y pueblo.';
+      return;
+    }
+
+    resultado.textContent = `${persona.nombre}, eres de ${persona.provincia} y vives en ${persona.pueblo}.`;
+  });
 });

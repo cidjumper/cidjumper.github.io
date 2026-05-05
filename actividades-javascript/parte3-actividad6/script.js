@@ -1,26 +1,22 @@
-const botonCalcularTotal = document.getElementById('boton-calcular-total');
-const resultado = document.getElementById('resultado');
+'use strict';
 
-botonCalcularTotal.addEventListener('click', function () {
-  const nombre = document.getElementById('nombre').value.trim();
-  const cantidad = Number(document.getElementById('cantidad').value);
+document.addEventListener('DOMContentLoaded', () => {
+  const botonCalcularTotal = document.getElementById('boton-calcular-total');
+  const resultado = document.getElementById('resultado');
 
-  if (!nombre || Number.isNaN(cantidad) || cantidad < 0) {
-    resultado.textContent = 'Debes escribir un nombre y una cantidad válida.';
-    return;
-  }
+  botonCalcularTotal.addEventListener('click', () => {
+    const nombre = document.getElementById('nombre').value.trim();
+    const cantidad = parseFloat(document.getElementById('cantidad').value);
 
-  let iva = 0;
+    if (!nombre || Number.isNaN(cantidad) || cantidad < 0) {
+      resultado.textContent = 'Debes escribir un nombre y una cantidad válida.';
+      return;
+    }
 
-  if (cantidad >= 5000) {
-    iva = 10;
-  } else if (cantidad > 3000) {
-    iva = 15;
-  } else {
-    iva = 21;
-  }
+    const iva = cantidad >= 5000 ? 10 : cantidad > 3000 ? 15 : 21;
+    const total = cantidad + (cantidad * iva / 100);
+    const compra = { nombre, base: cantidad, iva, total };
 
-  const total = cantidad + (cantidad * iva / 100);
-
-  resultado.innerHTML = '<strong>' + nombre + '</strong> debe pagar <strong>' + total.toFixed(2) + ' €</strong> con un IVA del ' + iva + '%.';
+    resultado.innerHTML = `<strong>${compra.nombre}</strong> debe pagar <strong>${compra.total.toFixed(2)} €</strong> con un IVA del ${compra.iva}%.`;
+  });
 });
