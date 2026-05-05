@@ -1,42 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parte 3 · Actividad 4</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../comun.css">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Actividad 4</title>
+<link rel="stylesheet" href="estilos.css">
+<script src="script.js"></script>
 </head>
 <body>
-
-<div class="pagina-actividad">
-  <header class="cabecera-actividad">
-    <h1>Parte 3 · Actividad 4</h1>
-    <p>Pedir un mes y devolver la estación del año usando switch.</p>
-  </header>
-
-  <main class="panel-actividad">
-
-<h2>Estación del año con switch</h2>
-<div class="grupo-campo">
-  <label for="mes">Escribe el nombre de un mes</label>
-  <input id="mes" type="text" placeholder="Ejemplo: abril">
+<header><h1>Actividad 4</h1></header>
+<main>
+<div class="contenedor">
+<h2 class="titulo">Estación con switch</h2>
+<p class="texto">Escribe el mes en minúsculas.</p>
+<div class="bloque">
+<label>Mes</label><input id="mes" type="text">
+<button onclick="estacionSwitch()">Mostrar estación</button>
+<div id="resultado" class="resultado rojo">Resultado</div>
 </div>
-<div class="fila-botones">
-  <button id="boton-mostrar-estacion-switch">Mostrar estación</button>
+<div class="btn-container"><a href="../../index.html" class="btn-volver">Volver al inicio</a></div>
 </div>
-<div id="resultado" class="resultado resultado-rojo"></div>
-
-    <div class="fila-botones volver-inicio">
-      <a class="boton-enlace" href="../parte3/index.html">Volver a la Parte 3</a>
-      <a class="boton-enlace" href="../../index.html">Volver a la página principal</a>
-    </div>
-  </main>
-</div>
-
-  <script src="script.js"></script>
+</main>
+<footer><p>&copy; 2026 José Gómez Contreras</p></footer>
 </body>
 </html>

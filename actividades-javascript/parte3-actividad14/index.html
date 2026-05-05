@@ -1,51 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parte 3 · Actividad 14</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../comun.css">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Actividad 14</title>
+<link rel="stylesheet" href="estilos.css">
+<script src="script.js"></script>
 </head>
-<body>
-
-<div class="pagina-actividad">
-  <header class="cabecera-actividad">
-    <h1>Parte 3 · Actividad 14</h1>
-    <p>Calculadora básica con suma, resta, multiplicación y división.</p>
-  </header>
-
-  <main class="panel-actividad">
-
-<h2>Calculadora</h2>
-<div class="zona-controles">
-  <div class="grupo-campo">
-    <label for="numero-uno">Primer número</label>
-    <input id="numero-uno" type="number" step="0.01" placeholder="Escribe el primer número">
-  </div>
-  <div class="grupo-campo">
-    <label for="numero-dos">Segundo número</label>
-    <input id="numero-dos" type="number" step="0.01" placeholder="Escribe el segundo número">
-  </div>
+<body onload="iniciarCalculadora()">
+<header><h1>Actividad 14</h1></header>
+<main>
+<div class="contenedor">
+<h2 class="titulo">Calculadora JavaScript</h2>
+<div class="zona-calculadora">
+<div class="calculadora">
+<input type="text" id="pantalla" value="0" disabled>
+<div class="teclas">
+<button class="limpiar" onclick="limpiarPantalla()">C</button>
+<button class="borrar" onclick="borrarCaracter()">DEL</button>
+<button class="operador" onclick="insertarOperador('/')">÷</button><br>
+<button onclick="insertarNumero('7')">7</button>
+<button onclick="insertarNumero('8')">8</button>
+<button onclick="insertarNumero('9')">9</button>
+<button class="operador" onclick="insertarOperador('*')">x</button><br>
+<button onclick="insertarNumero('4')">4</button>
+<button onclick="insertarNumero('5')">5</button>
+<button onclick="insertarNumero('6')">6</button>
+<button class="operador" onclick="insertarOperador('-')">-</button><br>
+<button onclick="insertarNumero('1')">1</button>
+<button onclick="insertarNumero('2')">2</button>
+<button onclick="insertarNumero('3')">3</button>
+<button class="operador" onclick="insertarOperador('+')">+</button><br>
+<button class="cero" onclick="insertarNumero('0')">0</button>
+<button onclick="insertarDecimal()">.</button>
+<button class="igual" onclick="calcularResultado()">=</button>
 </div>
-<div class="fila-botones">
-  <button data-operacion="sumar" class="boton-operacion">Sumar</button>
-  <button data-operacion="restar" class="boton-operacion">Restar</button>
-  <button data-operacion="multiplicar" class="boton-operacion">Multiplicar</button>
-  <button data-operacion="dividir" class="boton-operacion">Dividir</button>
 </div>
-<div id="resultado" class="resultado"></div>
-
-    <div class="fila-botones volver-inicio">
-      <a class="boton-enlace" href="../parte3/index.html">Volver a la Parte 3</a>
-      <a class="boton-enlace" href="../../index.html">Volver a la página principal</a>
-    </div>
-  </main>
 </div>
-
-  <script src="script.js"></script>
+<div class="btn-container"><a href="../../index.html" class="btn-volver">Volver al inicio</a></div>
+</div>
+</main>
+<footer><p>&copy; 2026 José Gómez Contreras</p></footer>
 </body>
 </html>

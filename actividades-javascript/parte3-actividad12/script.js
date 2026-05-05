@@ -1,24 +1,16 @@
 const recetas = [
-  { id: 1, nombreReceta: 'Salmorejo', ingredientes: 'Tomate, aceite y pan' },
-  { id: 2, nombreReceta: 'Gachas', ingredientes: 'Harina, agua y azúcar' },
-  { id: 3, nombreReceta: 'Migas', ingredientes: 'Pan, ajos y aceite' }
+    {id: 1, nombrereceta: "Salmorejo", ingredientes: "Tomate, aceite y pan"},
+    {id: 2, nombrereceta: "Gachas", ingredientes: "Harina, agua y azucar"},
+    {id: 3, nombrereceta: "Migas", ingredientes: "Pan, ajo y aceite"}
 ];
 
-const botonMostrarRecetas = document.getElementById('boton-mostrar-recetas');
-const resultado = document.getElementById('resultado');
+function mostrarRecetas() {
+    let tabla = "<table><tr><th>ID</th><th>Nombre Receta</th><th>Ingredientes</th></tr>";
 
-botonMostrarRecetas.addEventListener('click', function () {
-  let tabla = '<table class="tabla-retro">';
-  tabla += '<tr><th>ID</th><th>Nombre receta</th><th>Ingredientes</th></tr>';
+    for (let i = 0; i < recetas.length; i++) {
+        tabla = tabla + "<tr><td>" + recetas[i].id + "</td><td>" + recetas[i].nombrereceta + "</td><td>" + recetas[i].ingredientes + "</td></tr>";
+    }
 
-  recetas.forEach(function (receta) {
-    tabla += '<tr>';
-    tabla += '<td>' + receta.id + '</td>';
-    tabla += '<td>' + receta.nombreReceta + '</td>';
-    tabla += '<td>' + receta.ingredientes + '</td>';
-    tabla += '</tr>';
-  });
-
-  tabla += '</table>';
-  resultado.innerHTML = tabla;
-});
+    tabla = tabla + "</table>";
+    document.getElementById("resultado").innerHTML = tabla;
+}

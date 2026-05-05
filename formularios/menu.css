@@ -1,4 +1,84 @@
-
-@import url('../style.css');
-main{max-width:1100px}
-.grid-principal{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+body {
+margin: 0;
+background-color: #1a1a2e;
+color: #ffffff;
+font-family: Arial, Verdana, sans-serif;
+}
+header {
+background-color: #0f0c29;
+text-align: center;
+padding: 25px;
+border-bottom: 4px solid #f92a82;
+}
+header h1 {
+margin: 0;
+font-size: 40px;
+color: #ffffff;
+}
+nav {
+background-color: #11112b;
+border-bottom: 4px solid #f92a82;
+text-align: center;
+}
+.menu {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+.menu li {
+display: inline-block;
+}
+.menu a {
+display: block;
+min-width: 150px;
+padding: 15px;
+margin: 5px;
+background-color: #343862;
+color: #ffffff;
+text-decoration: none;
+border: 3px solid #f92a82;
+font-weight: bold;
+}
+.menu a:hover {
+background-color: #f92a82;
+color: #ffffff;
+}
+main {
+padding: 30px;
+}
+.contenedor {
+width: 80%;
+margin: 30px auto;
+background-color: #ffffff;
+color: #1a1a2e;
+padding: 30px;
+border: 5px solid #f92a82;
+text-align: center;
+}
+.lista-formularios {
+list-style-type: none;
+margin: 20px auto;
+padding: 0;
+width: 80%;
+}
+.lista-formularios li {
+margin: 15px;
+}
+.lista-formularios a {
+display: block;
+padding: 15px;
+background-color: #0f0c29;
+color: #ffffff;
+text-decoration: none;
+border: 3px solid #f92a82;
+font-weight: bold;
+}
+.lista-formularios a:hover {
+background-color: #f92a82;
+}
+footer {
+background-color: #0f0c29;
+text-align: center;
+padding: 15px;
+border-top: 4px solid #f92a82;
+}

@@ -1,41 +1,35 @@
-const agendaUsuarios = new Map();
-const botonAnadirUsuario = document.getElementById('boton-anadir-usuario');
-const botonVerAgenda = document.getElementById('boton-ver-agenda');
-const botonVaciarFormulario = document.getElementById('boton-vaciar-formulario');
-const resultado = document.getElementById('resultado');
-
-botonAnadirUsuario.addEventListener('click', function () {
-  const nombre = document.getElementById('nombre').value.trim();
-  const dni = document.getElementById('dni').value.trim();
-
-  if (!nombre || !dni) {
-    resultado.textContent = 'Debes escribir el nombre y el DNI.';
-    return;
-  }
-
-  agendaUsuarios.set(dni, nombre);
-  resultado.textContent = 'Usuario guardado correctamente en la agenda.';
-});
-
-botonVerAgenda.addEventListener('click', function () {
-  if (agendaUsuarios.size === 0) {
-    resultado.textContent = 'La agenda está vacía.';
-    return;
-  }
-
-  let contenido = '<table class="tabla-retro">';
-  contenido += '<tr><th>DNI</th><th>Nombre</th></tr>';
-
-  agendaUsuarios.forEach(function (nombre, dni) {
-    contenido += '<tr><td>' + dni + '</td><td>' + nombre + '</td></tr>';
-  });
-
-  contenido += '</table>';
-  resultado.innerHTML = contenido;
-});
-
-botonVaciarFormulario.addEventListener('click', function () {
-  document.getElementById('nombre').value = '';
-  document.getElementById('dni').value = '';
-  resultado.textContent = 'Formulario limpiado.';
-});
+let agenda = new Map();
+function anadirUsuario() {
+    let nombre = document.getElementById("nombre").value;
+    let dni = document.getElementById("dni").value;
+    if (nombre === "" || dni === "") {
+        mostrarMensaje("Debes introducir un nombre y un DNI.");
+        return;
+    }
+    if (agenda.has(dni)) {
+        mostrarMensaje("Ya existe un usuario guardado con ese DNI.");
+        return;
+    }
+    agenda.set(dni, nombre);
+    mostrarMensaje("Usuario añadido correctamente.");
+    document.getElementById("nombre").value = "";
+    document.getElementById("dni").value = "";
+    mostrarUsuarios();
+}
+function mostrarUsuarios() {
+    let lista = document.getElementById("listaUsuarios");
+    let texto = "";
+    if (agenda.size === 0) {
+        lista.innerHTML = "Todavía no hay usuarios guardados.";
+        mostrarMensaje("La agenda está vacía.");
+        return;
+    }
+    for (let usuario of agenda) {
+        texto = texto + "<div class='usuario'><p><b>Nombre:</b> " + usuario[1] + "</p><p><b>DNI:</b> " + usuario[0] + "</p></div>";
+    }
+    lista.innerHTML = texto;
+    mostrarMensaje("Mostrando todos los usuarios.");
+}
+function mostrarMensaje(texto) {
+    document.getElementById("mensaje").innerHTML = texto;
+}

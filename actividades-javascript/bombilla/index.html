@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bombilla 2</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Bombilla 2</title>
+<link rel="stylesheet" href="estilos.css">
+<script src="script.js"></script>
 </head>
 <body>
-  <div class="pagina-actividad">
-    <header class="cabecera-actividad">
-      <h1>Bombilla 2</h1>
-      <p>La bombilla empieza apagada y el botón cambia entre Encender y Apagar.</p>
-    </header>
-
-    <main class="panel-actividad">
-      <section class="zona-bombilla">
-        <img id="bombilla" src="img/bombilla_off.png" alt="Bombilla apagada">
-        <button id="boton-bombilla" type="button">Encender</button>
-      </section>
-
-      <section class="fila-botones">
-        <a class="boton-enlace" href="../index.html">Volver a JavaScript</a>
-        <a class="boton-enlace" href="../../index.html">Volver al inicio</a>
-      </section>
-    </main>
-  </div>
-  <script src="script.js"></script>
+<header><h1>Bombilla 2</h1></header>
+<main>
+<div class="contenedor">
+<h2 class="titulo">Bombilla 2</h2>
+<p class="texto">La bombilla empieza apagada. Al pulsar el botón se enciende y el texto cambia a Apagar. Al volver a pulsar se apaga y cambia a Encender.</p>
+<div class="bloque bombilla-zona">
+<h2>¿Qué puedo hacer con JavaScript?</h2>
+<p>JavaScript puede cambiar los atributos de HTML.</p>
+<img id="imagenBombilla" src="bombilla_apagada.png" alt="Bombilla apagada">
+<button id="botonBombilla" onclick="cambiarBombilla()">Encender</button>
+</div>
+<div class="btn-container"><a href="../../index.html" class="btn-volver">Volver al inicio</a></div>
+</div>
+</main>
+<footer><p>&copy; 2026 José Gómez Contreras</p></footer>
 </body>
 </html>

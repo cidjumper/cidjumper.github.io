@@ -1,41 +1,108 @@
-const botonesOperacion = document.querySelectorAll('.boton-operacion');
-const resultado = document.getElementById('resultado');
+let pantalla;
+let numeroGuardado = 0;
+let operadorGuardado = "";
+let nuevoNumero = true;
+let puntoPuesto = false;
 
-function obtenerNumeros() {
-  const numeroUno = Number(document.getElementById('numero-uno').value);
-  const numeroDos = Number(document.getElementById('numero-dos').value);
-
-  if (Number.isNaN(numeroUno) || Number.isNaN(numeroDos)) {
-    resultado.textContent = 'Debes escribir dos números válidos.';
-    return null;
-  }
-
-  return { numeroUno, numeroDos };
+function iniciarCalculadora() {
+    pantalla = document.getElementById("pantalla");
 }
 
-botonesOperacion.forEach(function (boton) {
-  boton.addEventListener('click', function () {
-    const numeros = obtenerNumeros();
-    if (!numeros) {
-      return;
+function insertarNumero(numero) {
+    if (pantalla === undefined) {
+        iniciarCalculadora();
     }
+    if (pantalla.value === "0" || nuevoNumero === true) {
+        pantalla.value = numero;
+        nuevoNumero = false;
+    } else {
+        pantalla.value = pantalla.value + numero;
+    }
+}
 
-    let respuesta = 0;
+function insertarOperador(operador) {
+    if (pantalla === undefined) {
+        iniciarCalculadora();
+    }
+    numeroGuardado = parseFloat(pantalla.value);
+    operadorGuardado = operador;
+    nuevoNumero = true;
+    puntoPuesto = false;
+}
 
-    if (boton.dataset.operacion === 'sumar') {
-      respuesta = numeros.numeroUno + numeros.numeroDos;
-    } else if (boton.dataset.operacion === 'restar') {
-      respuesta = numeros.numeroUno - numeros.numeroDos;
-    } else if (boton.dataset.operacion === 'multiplicar') {
-      respuesta = numeros.numeroUno * numeros.numeroDos;
-    } else if (boton.dataset.operacion === 'dividir') {
-      if (numeros.numeroDos === 0) {
-        resultado.textContent = 'No se puede dividir entre 0.';
+function insertarDecimal() {
+    if (pantalla === undefined) {
+        iniciarCalculadora();
+    }
+    if (puntoPuesto === false) {
+        pantalla.value = pantalla.value + ".";
+        puntoPuesto = true;
+        nuevoNumero = false;
+    }
+}
+
+function limpiarPantalla() {
+    if (pantalla === undefined) {
+        iniciarCalculadora();
+    }
+    pantalla.value = "0";
+    numeroGuardado = 0;
+    operadorGuardado = "";
+    nuevoNumero = true;
+    puntoPuesto = false;
+}
+
+function borrarCaracter() {
+    if (pantalla === undefined) {
+        iniciarCalculadora();
+    }
+    let texto = pantalla.value;
+    let nuevoTexto = "";
+
+    if (texto.length <= 1) {
+        pantalla.value = "0";
+        nuevoNumero = true;
+        puntoPuesto = false;
         return;
-      }
-      respuesta = numeros.numeroUno / numeros.numeroDos;
     }
 
-    resultado.textContent = 'Resultado: ' + respuesta;
-  });
-});
+    for (let i = 0; i < texto.length - 1; i++) {
+        nuevoTexto = nuevoTexto + texto[i];
+    }
+
+    pantalla.value = nuevoTexto;
+}
+
+function calcularResultado() {
+    if (pantalla === undefined) {
+        iniciarCalculadora();
+    }
+    let numeroActual = parseFloat(pantalla.value);
+    let resultado = 0;
+
+    if (operadorGuardado === "") {
+        return;
+    }
+
+    if (operadorGuardado === "+") {
+        resultado = numeroGuardado + numeroActual;
+    } else if (operadorGuardado === "-") {
+        resultado = numeroGuardado - numeroActual;
+    } else if (operadorGuardado === "*") {
+        resultado = numeroGuardado * numeroActual;
+    } else if (operadorGuardado === "/") {
+        if (numeroActual === 0) {
+            pantalla.value = "Error";
+            nuevoNumero = true;
+            return;
+        }
+
+        resultado = numeroGuardado / numeroActual;
+    }
+
+    pantalla.value = resultado;
+    numeroGuardado = resultado;
+    operadorGuardado = "";
+    nuevoNumero = true;
+    puntoPuesto = false;
+}

@@ -1,17 +1,21 @@
-const bombilla = document.getElementById('bombilla');
-const botonBombilla = document.getElementById('boton-bombilla');
 let encendida = false;
+let bombillaApagada = "bombilla_apagada.png";
+let bombillaEncendida = "bombilla_encendida.png";
 
-botonBombilla.addEventListener('click', function () {
-  encendida = !encendida;
 
-  if (encendida) {
-    bombilla.src = 'img/bombilla_on.png';
-    bombilla.alt = 'Bombilla encendida';
-    botonBombilla.textContent = 'Apagar';
-  } else {
-    bombilla.src = 'img/bombilla_off.png';
-    bombilla.alt = 'Bombilla apagada';
-    botonBombilla.textContent = 'Encender';
-  }
-});
+function cambiarBombilla() {
+    let imagen = document.getElementById("imagenBombilla");
+    let boton = document.getElementById("botonBombilla");
+
+    if (encendida === false) {
+        imagen.src = bombillaEncendida;
+        imagen.alt = "Bombilla encendida";
+        boton.innerHTML = "Apagar";
+        encendida = true;
+    } else {
+        imagen.src = bombillaApagada;
+        imagen.alt = "Bombilla apagada";
+        boton.innerHTML = "Encender";
+        encendida = false;
+    }
+}

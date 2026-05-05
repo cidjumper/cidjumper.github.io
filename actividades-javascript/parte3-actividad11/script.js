@@ -1,18 +1,15 @@
-const botonCalcularSumatorio = document.getElementById('boton-calcular-sumatorio');
-const resultado = document.getElementById('resultado');
+function sumarNumeros() {
+    let numero = parseInt(document.getElementById("numero").value);
+    let suma = 0;
 
-botonCalcularSumatorio.addEventListener('click', function () {
-  const numeroN = Number(document.getElementById('numero-n').value);
+    if (isNaN(numero) || numero < 0) {
+        document.getElementById("resultado").innerHTML = "Introduce un número positivo.";
+        return;
+    }
 
-  if (Number.isNaN(numeroN) || numeroN < 0) {
-    resultado.textContent = 'Debes introducir un número entero igual o mayor que 0.';
-    return;
-  }
+    for (let i = 0; i <= numero; i++) {
+        suma = suma + i;
+    }
 
-  let suma = 0;
-  for (let i = 0; i <= numeroN; i++) {
-    suma += i;
-  }
-
-  resultado.textContent = 'La suma desde 0 hasta ' + numeroN + ' es ' + suma + '.';
-});
+    document.getElementById("resultado").innerHTML = "El sumatorio desde 0 hasta " + numero + " es " + suma + ".";
+}

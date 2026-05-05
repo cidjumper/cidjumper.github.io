@@ -1,19 +1,23 @@
-const botonMostrarDatos = document.getElementById('boton-mostrar-datos');
-const resultado = document.getElementById('resultado');
+function mostrarDatos() {
+    let nombre = document.getElementById("nombre").value;
+    let apellidos = document.getElementById("apellidos").value;
+    let edad = parseInt(document.getElementById("edad").value);
+    let resultado = document.getElementById("resultado");
 
-botonMostrarDatos.addEventListener('click', function () {
-  const nombre = document.getElementById('nombre').value.trim();
-  const apellidos = document.getElementById('apellidos').value.trim();
-  const edad = Number(document.getElementById('edad').value);
-  const anioActual = new Date().getFullYear();
+    if (nombre === "" || apellidos === "" || isNaN(edad) || edad < 0) {
+        resultado.innerHTML = "Introduce datos válidos.";
+        return;
+    }
 
-  if (!nombre || !apellidos || Number.isNaN(edad)) {
-    resultado.textContent = 'Debes completar nombre, apellidos y edad.';
-    return;
-  }
+    let fecha = new Date();
+    let anio = fecha.getFullYear() - edad;
+    let mensaje = "";
 
-  const anioNacimiento = anioActual - edad;
-  const mensajeEdad = edad >= 18 ? 'es mayor de edad' : 'es menor de edad';
+    if (edad >= 18) {
+        mensaje = nombre + " " + apellidos + " tiene " + edad + " años y es mayor de Edad";
+    } else {
+        mensaje = nombre + " " + apellidos + " tiene " + edad + " años y es menor de Edad";
+    }
 
-  resultado.innerHTML = '<strong>' + nombre + ' ' + apellidos + '</strong> tiene ' + edad + ' años, nació en ' + anioNacimiento + ' y ' + mensajeEdad + '.';
-});
+    resultado.innerHTML = mensaje + "<br>Año de nacimiento aproximado: " + anio;
+}

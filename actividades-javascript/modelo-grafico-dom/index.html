@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Modelo gráfico DOM</title>
+<link rel="stylesheet" href="estilos.css">
+<script src="script.js"></script>
+</head>
+<body onload="iniciarDom()">
+<header><h1>Modelo gráfico DOM</h1></header>
+<main>
+<div class="contenedor">
+<h2 class="titulo">Modelo gráfico DOM</h2>
+<p class="texto">Representación gráfica del DOM del código indicado y botones para modificar h1, párrafo y tabla.</p>
+<div class="bloque">
+<div class="arbol-dom">
+<div class="nodo">DOCTYPE HTML</div>
+<div class="nodo">html</div>
+<div class="rama">
+<div class="nodo">head</div>
+<div class="rama"><div class="nodo">title</div><div class="rama"><div class="nodo texto-nodo">Título de la Página WEB</div></div></div>
+<div class="nodo">body</div>
+<div class="rama">
+<div class="nodo">h1</div>
+<div class="nodo">p</div>
+<div class="nodo">div</div>
+<div class="rama"><div class="nodo">table</div><div class="rama"><div class="nodo">tr</div><div class="rama"><div class="nodo">td Celda 1</div><div class="nodo">td Celda 2</div></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bloque" id="zonaManipulacion">
+<h1 id="encabezado">Encabezado de la página web</h1>
+<p id="parrafo">Esto es un párrafo</p>
+<table><tr id="filaTabla"><td id="celda1">Celda 1</td><td id="celda2">Celda 2</td></tr></table>
+<button onclick="cambiarTitulo()">Cambiar h1</button>
+<button onclick="cambiarParrafo()">Cambiar p</button>
+<button onclick="cambiarCeldas()">Cambiar celdas</button>
+<button onclick="anadirCelda()">Añadir celda</button>
+<button onclick="cambiarColorCeldas()">Color celdas</button>
+<button onclick="deshacerCambio()">Deshacer cambio</button>
+</div>
+<div class="btn-container"><a href="../../index.html" class="btn-volver">Volver al inicio</a></div>
+</div>
+</main>
+<footer><p>&copy; 2026 José Gómez Contreras</p></footer>
+</body>
+</html>

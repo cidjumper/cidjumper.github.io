@@ -1,103 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portal personal con formularios, restaurante, horario y actividades de JavaScript.">
-  <meta name="author" content="José Gómez Contreras">
-  <title>Mis actividades</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Mis actividades</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="cabecera">
-    <div class="header-box">
-      <h1>Mis Actividades</h1>
-      <div class="character-container" aria-hidden="true">
-        <div class="character cloud"></div>
-        <div class="character aeris"></div>
-      </div>
-    </div>
-  </header>
-
-  <nav class="nav-principal" aria-label="Menú principal">
-    <ul class="menu">
-      <li class="menu-item"><a href="index.html">Inicio</a></li>
-
-      <li class="menu-item desplegable">
-        <button class="menu-boton" type="button" aria-expanded="false">Formularios <span>▼</span></button>
-        <ul class="submenu submenu-simple">
-          <li><a href="formularios/formulario1/index.html">Formulario 1</a></li>
-          <li><a href="formularios/formulario2/index.html">Formulario 2</a></li>
-        </ul>
-      </li>
-
-      <li class="menu-item"><a href="restaurante/index.html">Restaurante</a></li>
-
-      <li class="menu-item desplegable menu-javascript">
-        <button class="menu-boton" type="button" aria-expanded="false">JavaScript <span>▼</span></button>
-        <ul class="submenu submenu-simple submenu-javascript-lista">
-          <li class="submenu-item submenu-desplegable">
-            <button class="submenu-boton" type="button" aria-expanded="false">Parte 1 <span>▼</span></button>
-            <ul class="submenu submenu-simple submenu-interno">
-              <li><a href="actividades-javascript/parte1/index.html">Modelo gráfico del DOM</a></li>
-            </ul>
-          </li>
-          <li class="submenu-item submenu-desplegable">
-            <button class="submenu-boton" type="button" aria-expanded="false">Parte 2 <span>▼</span></button>
-            <ul class="submenu submenu-simple submenu-interno">
-              <li><a href="actividades-javascript/parte2/index.html">Parte 2</a></li>
-              <li><a href="actividades-javascript/parte2-actividad1/index.html">Actividad 1</a></li>
-              <li><a href="actividades-javascript/parte2-actividad2/index.html">Actividad 2</a></li>
-              <li><a href="actividades-javascript/parte2-actividad3/index.html">Actividad 3</a></li>
-              <li><a href="actividades-javascript/parte2-actividad4/index.html">Actividad 4</a></li>
-              <li><a href="actividades-javascript/parte2-actividad5/index.html">Actividad 5</a></li>
-              <li><a href="actividades-javascript/parte2-actividad6/index.html">Actividad 6</a></li>
-            </ul>
-          </li>
-          <li class="submenu-item submenu-desplegable">
-            <button class="submenu-boton" type="button" aria-expanded="false">Parte 3 <span>▼</span></button>
-            <ul class="submenu submenu-simple submenu-interno">
-              <li><a href="actividades-javascript/parte3/index.html">Parte 3</a></li>
-              <li><a href="actividades-javascript/parte3-actividad1/index.html">Actividad 1</a></li>
-              <li><a href="actividades-javascript/parte3-actividad2/index.html">Actividad 2</a></li>
-              <li><a href="actividades-javascript/parte3-actividad3/index.html">Actividad 3</a></li>
-              <li><a href="actividades-javascript/parte3-actividad4/index.html">Actividad 4</a></li>
-              <li><a href="actividades-javascript/parte3-actividad5/index.html">Actividad 5</a></li>
-              <li><a href="actividades-javascript/parte3-actividad6/index.html">Actividad 6</a></li>
-              <li><a href="actividades-javascript/parte3-actividad7/index.html">Actividad 7</a></li>
-              <li><a href="actividades-javascript/parte3-actividad8/index.html">Actividad 8</a></li>
-              <li><a href="actividades-javascript/parte3-actividad9/index.html">Actividad 9</a></li>
-              <li><a href="actividades-javascript/parte3-actividad10/index.html">Actividad 10</a></li>
-              <li><a href="actividades-javascript/parte3-actividad11/index.html">Actividad 11</a></li>
-              <li><a href="actividades-javascript/parte3-actividad12/index.html">Actividad 12</a></li>
-              <li><a href="actividades-javascript/parte3-actividad13/index.html">Actividad 13</a></li>
-              <li><a href="actividades-javascript/parte3-actividad14/index.html">Actividad 14</a></li>
-              <li><a href="actividades-javascript/parte3-actividad15/index.html">Actividad 15</a></li>
-            </ul>
-          </li>
-          <li><a href="actividades-javascript/bombilla/index.html">Bombilla 2</a></li>
-        </ul>
-      </li>
-
-      <li class="menu-item"><a href="horario/index.html">Horario</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <section class="panel-principal">
-      <div class="titulo-bienvenida">¡Bienvenido a mi página!</div>
-      <div class="info-box">José Gómez Contreras 1º DAW IES Inca Garcilaso</div>
-      <div class="info-box">Pulsa en un menú para cargar un ejercicio</div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2026 José Gómez Contreras</p>
-  </footer>
-
-  <script src="script.js"></script>
+<header>
+<h1>Mis Actividades</h1>
+<div class="character-container">
+<div class="character aeris"></div>
+<div class="character cloud"></div>
+</div>
+</header>
+<nav>
+<ul class="menu">
+<li><a href="index.html">Inicio</a></li>
+<li><a href="restaurante/index.html">Restaurante</a></li>
+<li><a href="horario/index.html">Horario</a></li>
+<li><a href="formularios/index.html">Formularios</a>
+<ul>
+<li><a href="formularios/formulario1/index.html">Formulario 1</a></li>
+<li><a href="formularios/formulario2/index.html">Formulario 2</a></li>
+</ul>
+</li>
+<li><a href="#">JavaScript</a>
+<ul>
+<li><a href="actividades-javascript/modelo-grafico-dom/index.html">Modelo gráfico DOM</a></li>
+<li><a href="actividades-javascript/bombilla/index.html">Bombilla 2</a></li>
+<li class="parte3"><a href="#" class="titulo-submenu">Parte 3</a>
+<ul class="submenu-izquierda">
+<li><a href="actividades-javascript/parte3-actividad1/index.html">Actividad 1</a></li>
+<li><a href="actividades-javascript/parte3-actividad2/index.html">Actividad 2</a></li>
+<li><a href="actividades-javascript/parte3-actividad3/index.html">Actividad 3</a></li>
+<li><a href="actividades-javascript/parte3-actividad4/index.html">Actividad 4</a></li>
+<li><a href="actividades-javascript/parte3-actividad5/index.html">Actividad 5</a></li>
+<li><a href="actividades-javascript/parte3-actividad6/index.html">Actividad 6</a></li>
+<li><a href="actividades-javascript/parte3-actividad7/index.html">Actividad 7</a></li>
+<li><a href="actividades-javascript/parte3-actividad8/index.html">Actividad 8</a></li>
+<li><a href="actividades-javascript/parte3-actividad9/index.html">Actividad 9</a></li>
+<li><a href="actividades-javascript/parte3-actividad10/index.html">Actividad 10</a></li>
+<li><a href="actividades-javascript/parte3-actividad11/index.html">Actividad 11</a></li>
+<li><a href="actividades-javascript/parte3-actividad12/index.html">Actividad 12</a></li>
+<li><a href="actividades-javascript/parte3-actividad13/index.html">Actividad 13</a></li>
+<li><a href="actividades-javascript/parte3-actividad14/index.html">Actividad 14</a></li>
+<li><a href="actividades-javascript/parte3-actividad15/index.html">Actividad 15</a></li>
+</ul>
+</li></ul>
+</li>
+</ul>
+</nav>
+<main>
+<div class="contenedor">
+<h2>Bienvenido a mi página</h2>
+<p>José Gómez Contreras 1º DAW IES Inca Garcilaso</p>
+<p>Selecciona una opción del menú para abrir una actividad.</p>
+</div>
+</main>
+<footer>
+<p>&copy; 2026 José Gómez Contreras</p>
+</footer>
 </body>
 </html>
