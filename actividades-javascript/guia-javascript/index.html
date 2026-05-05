@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía práctica de JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Guía práctica de JavaScript</h1>
+    <p>Resumen interactivo sin internet de las partes principales del PDF: sintaxis, colecciones, DOM, eventos, almacenamiento, JSON y POO.</p>
+  </header>
+
+  <nav class="indice" aria-label="Índice de secciones">
+    <a href="#fundamentos">Fundamentos</a>
+    <a href="#colecciones">Colecciones</a>
+    <a href="#dom-eventos">DOM y eventos</a>
+    <a href="#storage-json">Storage y JSON</a>
+    <a href="#poo-errores">POO y errores</a>
+  </nav>
+
+  <main>
+    <section id="fundamentos" class="tarjeta">
+      <h2>1. Variables, constantes, tipos y operadores</h2>
+      <p>Usa <code>let</code> para variables de bloque, <code>const</code> para referencias que no se reasignan y conversiones como <code>parseInt</code>, <code>parseFloat</code> y <code>toString</code>.</p>
+      <div class="formulario">
+        <label for="entradaNumero">Número como texto</label>
+        <input id="entradaNumero" type="text" value="23.50">
+        <button id="btnFundamentos">Probar conversiones</button>
+      </div>
+      <pre id="salidaFundamentos" class="salida"></pre>
+    </section>
+
+    <section id="colecciones" class="tarjeta">
+      <h2>2. Arrays, objetos, Set, Map, map y filter</h2>
+      <p>Los arrays guardan listas, los objetos guardan pares clave-valor, <code>Set</code> evita duplicados y <code>Map</code> permite claves de cualquier tipo.</p>
+      <div class="formulario">
+        <button id="btnColecciones">Generar resumen de usuarios</button>
+        <button id="btnFiltrar">Filtrar mayores de edad</button>
+      </div>
+      <div id="salidaColecciones" class="resultado"></div>
+    </section>
+
+    <section id="dom-eventos" class="tarjeta">
+      <h2>3. DOM, estilos y eventos con addEventListener</h2>
+      <p>El DOM representa las etiquetas HTML como objetos que se pueden seleccionar y modificar. Esta zona usa <code>querySelector</code>, <code>textContent</code>, <code>classList</code>, <code>style</code> y creación de elementos.</p>
+      <div id="cajaDom" class="caja-dom">Texto original del DOM.</div>
+      <div class="formulario">
+        <button id="btnTextoDom">Cambiar texto</button>
+        <button id="btnEstiloDom">Cambiar estilo</button>
+        <button id="btnCrearElemento">Crear elemento</button>
+        <button id="btnRestablecerDom">Restablecer</button>
+      </div>
+      <ul id="listaDom" class="lista-dom"></ul>
+    </section>
+
+    <section id="storage-json" class="tarjeta">
+      <h2>4. LocalStorage, SessionStorage y JSON</h2>
+      <p>Los almacenamientos del navegador guardan cadenas. Para objetos y arrays se convierte con <code>JSON.stringify</code> y se recupera con <code>JSON.parse</code>.</p>
+      <div class="formulario">
+        <label for="nombreStorage">Nombre</label>
+        <input id="nombreStorage" type="text" value="Ana">
+        <label for="emailStorage">Email</label>
+        <input id="emailStorage" type="email" value="ana@ejemplo.com">
+        <button id="btnGuardarStorage">Guardar</button>
+        <button id="btnLeerStorage">Leer</button>
+        <button id="btnLimpiarStorage">Limpiar</button>
+      </div>
+      <pre id="salidaStorage" class="salida"></pre>
+    </section>
+
+    <section id="poo-errores" class="tarjeta">
+      <h2>5. Clases, herencia, métodos estáticos y manejo de errores</h2>
+      <p>Las clases agrupan propiedades y métodos. <code>extends</code> crea herencia y <code>try...catch</code> evita que un error rompa toda la ejecución.</p>
+      <div class="formulario">
+        <label for="dividendo">Dividendo</label>
+        <input id="dividendo" type="number" value="10">
+        <label for="divisor">Divisor</label>
+        <input id="divisor" type="number" value="0">
+        <button id="btnPooErrores">Ejecutar ejemplo</button>
+      </div>
+      <pre id="salidaPooErrores" class="salida"></pre>
+    </section>
+
+    <div class="volver"><a href="../index.html">Volver al menú de JavaScript</a></div>
+  </main>
+</body>
+</html>

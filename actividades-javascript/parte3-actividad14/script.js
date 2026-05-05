@@ -1,108 +1,98 @@
+'use strict';
+
 let pantalla;
 let numeroGuardado = 0;
-let operadorGuardado = "";
+let operadorGuardado = '';
 let nuevoNumero = true;
 let puntoPuesto = false;
 
 function iniciarCalculadora() {
-    pantalla = document.getElementById("pantalla");
+  pantalla = document.getElementById('pantalla');
+}
+
+function asegurarPantalla() {
+  if (!pantalla) iniciarCalculadora();
 }
 
 function insertarNumero(numero) {
-    if (pantalla === undefined) {
-        iniciarCalculadora();
-    }
-    if (pantalla.value === "0" || nuevoNumero === true) {
-        pantalla.value = numero;
-        nuevoNumero = false;
-    } else {
-        pantalla.value = pantalla.value + numero;
-    }
+  asegurarPantalla();
+  if (pantalla.value === 'Error' || pantalla.value === '0' || nuevoNumero) {
+    pantalla.value = numero;
+    nuevoNumero = false;
+  } else {
+    pantalla.value += numero;
+  }
 }
 
 function insertarOperador(operador) {
-    if (pantalla === undefined) {
-        iniciarCalculadora();
-    }
-    numeroGuardado = parseFloat(pantalla.value);
-    operadorGuardado = operador;
-    nuevoNumero = true;
-    puntoPuesto = false;
+  asegurarPantalla();
+  numeroGuardado = parseFloat(pantalla.value);
+  operadorGuardado = operador;
+  nuevoNumero = true;
+  puntoPuesto = false;
 }
 
 function insertarDecimal() {
-    if (pantalla === undefined) {
-        iniciarCalculadora();
-    }
-    if (puntoPuesto === false) {
-        pantalla.value = pantalla.value + ".";
-        puntoPuesto = true;
-        nuevoNumero = false;
-    }
+  asegurarPantalla();
+  if (nuevoNumero) {
+    pantalla.value = '0.';
+    nuevoNumero = false;
+    puntoPuesto = true;
+    return;
+  }
+  if (!puntoPuesto && !pantalla.value.includes('.')) {
+    pantalla.value += '.';
+    puntoPuesto = true;
+  }
 }
 
 function limpiarPantalla() {
-    if (pantalla === undefined) {
-        iniciarCalculadora();
-    }
-    pantalla.value = "0";
-    numeroGuardado = 0;
-    operadorGuardado = "";
-    nuevoNumero = true;
-    puntoPuesto = false;
+  asegurarPantalla();
+  pantalla.value = '0';
+  numeroGuardado = 0;
+  operadorGuardado = '';
+  nuevoNumero = true;
+  puntoPuesto = false;
 }
 
 function borrarCaracter() {
-    if (pantalla === undefined) {
-        iniciarCalculadora();
-    }
-    let texto = pantalla.value;
-    let nuevoTexto = "";
-
-    if (texto.length <= 1) {
-        pantalla.value = "0";
-        nuevoNumero = true;
-        puntoPuesto = false;
-        return;
-    }
-
-    for (let i = 0; i < texto.length - 1; i++) {
-        nuevoTexto = nuevoTexto + texto[i];
-    }
-
-    pantalla.value = nuevoTexto;
+  asegurarPantalla();
+  if (pantalla.value.length <= 1 || pantalla.value === 'Error') {
+    limpiarPantalla();
+    return;
+  }
+  pantalla.value = pantalla.value.slice(0, -1);
+  puntoPuesto = pantalla.value.includes('.');
 }
 
 function calcularResultado() {
-    if (pantalla === undefined) {
-        iniciarCalculadora();
-    }
-    let numeroActual = parseFloat(pantalla.value);
-    let resultado = 0;
+  asegurarPantalla();
+  const numeroActual = parseFloat(pantalla.value);
+  let resultado = 0;
 
-    if (operadorGuardado === "") {
-        return;
-    }
+  if (!operadorGuardado || Number.isNaN(numeroActual)) return;
 
-    if (operadorGuardado === "+") {
-        resultado = numeroGuardado + numeroActual;
-    } else if (operadorGuardado === "-") {
-        resultado = numeroGuardado - numeroActual;
-    } else if (operadorGuardado === "*") {
-        resultado = numeroGuardado * numeroActual;
-    } else if (operadorGuardado === "/") {
-        if (numeroActual === 0) {
-            pantalla.value = "Error";
-            nuevoNumero = true;
-            return;
-        }
-
+  try {
+    switch (operadorGuardado) {
+      case '+': resultado = numeroGuardado + numeroActual; break;
+      case '-': resultado = numeroGuardado - numeroActual; break;
+      case '*': resultado = numeroGuardado * numeroActual; break;
+      case '/':
+        if (numeroActual === 0) throw new Error('División entre cero');
         resultado = numeroGuardado / numeroActual;
+        break;
+      default: return;
     }
-
-    pantalla.value = resultado;
+    pantalla.value = Number.isInteger(resultado) ? resultado.toString() : resultado.toFixed(6).replace(/0+$/, '').replace(/\.$/, '');
     numeroGuardado = resultado;
-    operadorGuardado = "";
+  } catch (error) {
+    pantalla.value = 'Error';
+    console.error(error.message);
+  } finally {
+    operadorGuardado = '';
     nuevoNumero = true;
     puntoPuesto = false;
+  }
 }
+
+document.addEventListener('DOMContentLoaded', iniciarCalculadora);

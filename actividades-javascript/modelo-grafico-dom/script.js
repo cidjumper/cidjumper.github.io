@@ -1,55 +1,66 @@
-let contenidoOriginal = "";
+'use strict';
+
+let contenidoOriginal = '';
 
 function iniciarDom() {
-    contenidoOriginal = document.getElementById("zonaManipulacion").innerHTML;
-    activarEventosCeldas();
+  const zona = document.getElementById('zonaManipulacion');
+  if (!zona) return;
+  contenidoOriginal = zona.innerHTML;
+  activarEventosCeldas();
 }
 
 function cambiarTitulo() {
-    let titulo = document.getElementById("encabezado");
-
-    titulo.innerHTML = "DOM Manipulado";
-    titulo.style.color = "red";
-    titulo.className = "titulo-activo";
+  const titulo = document.getElementById('encabezado');
+  if (!titulo) return;
+  titulo.textContent = 'DOM manipulado';
+  titulo.style.color = 'red';
+  titulo.className = 'titulo-activo';
 }
 
 function cambiarParrafo() {
-    let parrafo = document.getElementById("parrafo");
-
-    parrafo.innerHTML = "Esto es un párrafo con <strong>texto añadido en negrita</strong>.";
+  const parrafo = document.getElementById('parrafo');
+  if (parrafo) parrafo.innerHTML = 'Esto es un párrafo con <strong>texto añadido en negrita</strong>.';
 }
 
 function cambiarCeldas() {
-    document.getElementById("celda1").innerHTML = "Nueva Celda 1";
-    document.getElementById("celda2").innerHTML = "Nueva Celda 2";
+  ['celda1', 'celda2'].forEach((id, indice) => {
+    const celda = document.getElementById(id);
+    if (celda) celda.textContent = `Nueva Celda ${indice + 1}`;
+  });
 }
 
 function anadirCelda() {
-    let fila = document.getElementById("filaTabla");
-    let celda = document.createElement("td");
-
-    celda.innerHTML = "Nueva celda";
-    fila.appendChild(celda);
-    activarEventosCeldas();
+  const fila = document.getElementById('filaTabla');
+  if (!fila) return;
+  const celda = document.createElement('td');
+  celda.textContent = `Nueva celda ${fila.children.length + 1}`;
+  fila.appendChild(celda);
+  activarEventosCeldas();
 }
 
 function cambiarColorCeldas() {
-    document.getElementById("celda1").style.backgroundColor = "#f92a82";
-    document.getElementById("celda2").style.backgroundColor = "#f92a82";
+  const celdas = document.querySelectorAll('#filaTabla td');
+  celdas.forEach(celda => {
+    celda.style.backgroundColor = '#f92a82';
+    celda.style.color = '#ffffff';
+  });
 }
 
 function activarEventosCeldas() {
-    let celdas = document.getElementById("filaTabla").getElementsByTagName("td");
-
-    for (let i = 0; i < celdas.length; i++) {
-        celdas[i].onclick = function() {
-            this.style.backgroundColor = "yellow";
-        };
-    }
+  const celdas = document.querySelectorAll('#filaTabla td');
+  celdas.forEach(celda => {
+    celda.addEventListener('click', () => {
+      celda.style.backgroundColor = 'yellow';
+      celda.style.color = '#1a1a2e';
+    });
+  });
 }
 
 function deshacerCambio() {
-    document.getElementById("zonaManipulacion").innerHTML = contenidoOriginal;
-    activarEventosCeldas();
+  const zona = document.getElementById('zonaManipulacion');
+  if (!zona) return;
+  zona.innerHTML = contenidoOriginal;
+  activarEventosCeldas();
 }
 
+document.addEventListener('DOMContentLoaded', iniciarDom);

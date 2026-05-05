@@ -1,21 +1,26 @@
-let encendida = false;
-let bombillaApagada = "bombilla_apagada.png";
-let bombillaEncendida = "bombilla_encendida.png";
+'use strict';
 
+const bombilla = {
+  encendida: false,
+  imagenes: {
+    apagada: 'bombilla_apagada.png',
+    encendida: 'bombilla_encendida.png'
+  }
+};
 
 function cambiarBombilla() {
-    let imagen = document.getElementById("imagenBombilla");
-    let boton = document.getElementById("botonBombilla");
+  const imagen = document.getElementById('imagenBombilla');
+  const boton = document.getElementById('botonBombilla');
+  if (!imagen || !boton) return;
 
-    if (encendida === false) {
-        imagen.src = bombillaEncendida;
-        imagen.alt = "Bombilla encendida";
-        boton.innerHTML = "Apagar";
-        encendida = true;
-    } else {
-        imagen.src = bombillaApagada;
-        imagen.alt = "Bombilla apagada";
-        boton.innerHTML = "Encender";
-        encendida = false;
-    }
+  bombilla.encendida = !bombilla.encendida;
+  imagen.src = bombilla.encendida ? bombilla.imagenes.encendida : bombilla.imagenes.apagada;
+  imagen.alt = bombilla.encendida ? 'Bombilla encendida' : 'Bombilla apagada';
+  boton.textContent = bombilla.encendida ? 'Apagar' : 'Encender';
+  boton.setAttribute('aria-pressed', String(bombilla.encendida));
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const boton = document.getElementById('botonBombilla');
+  if (boton) boton.addEventListener('click', cambiarBombilla);
+});

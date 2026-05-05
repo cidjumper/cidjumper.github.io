@@ -1,16 +1,22 @@
+'use strict';
+
 const recetas = [
-    {id: 1, nombrereceta: "Salmorejo", ingredientes: "Tomate, aceite y pan"},
-    {id: 2, nombrereceta: "Gachas", ingredientes: "Harina, agua y azucar"},
-    {id: 3, nombrereceta: "Migas", ingredientes: "Pan, ajo y aceite"}
+  { id: 1, nombreReceta: 'Salmorejo', ingredientes: ['tomate', 'aceite', 'pan'] },
+  { id: 2, nombreReceta: 'Gachas', ingredientes: ['harina', 'agua', 'azúcar'] },
+  { id: 3, nombreReceta: 'Migas', ingredientes: ['pan', 'ajo', 'aceite'] }
 ];
 
 function mostrarRecetas() {
-    let tabla = "<table><tr><th>ID</th><th>Nombre Receta</th><th>Ingredientes</th></tr>";
+  const filas = recetas.map(receta => `
+    <tr>
+      <td>${receta.id}</td>
+      <td>${receta.nombreReceta}</td>
+      <td>${receta.ingredientes.join(', ')}</td>
+    </tr>`).join('');
 
-    for (let i = 0; i < recetas.length; i++) {
-        tabla = tabla + "<tr><td>" + recetas[i].id + "</td><td>" + recetas[i].nombrereceta + "</td><td>" + recetas[i].ingredientes + "</td></tr>";
-    }
-
-    tabla = tabla + "</table>";
-    document.getElementById("resultado").innerHTML = tabla;
+  document.getElementById('resultado').innerHTML = `
+    <table>
+      <thead><tr><th>ID</th><th>Nombre receta</th><th>Ingredientes</th></tr></thead>
+      <tbody>${filas}</tbody>
+    </table>`;
 }

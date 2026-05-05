@@ -1,18 +1,20 @@
+'use strict';
+
 function estacionIf() {
-    let mes = document.getElementById("mes").value;
-    let estacion = "";
+  const mes = document.getElementById('mes').value.trim().toLowerCase();
+  let estacion = '';
 
-    if (mes === "diciembre" || mes === "enero" || mes === "febrero") {
-        estacion = "invierno";
-    } else if (mes === "marzo" || mes === "abril" || mes === "mayo") {
-        estacion = "primavera";
-    } else if (mes === "junio" || mes === "julio" || mes === "agosto") {
-        estacion = "verano";
-    } else if (mes === "septiembre" || mes === "octubre" || mes === "noviembre") {
-        estacion = "otoño";
-    } else {
-        estacion = "Mes no válido. Escríbelo en minúsculas.";
-    }
+  if (['diciembre', 'enero', 'febrero'].includes(mes)) {
+    estacion = 'invierno';
+  } else if (['marzo', 'abril', 'mayo'].includes(mes)) {
+    estacion = 'primavera';
+  } else if (['junio', 'julio', 'agosto'].includes(mes)) {
+    estacion = 'verano';
+  } else if (['septiembre', 'octubre', 'noviembre'].includes(mes)) {
+    estacion = 'otoño';
+  } else {
+    estacion = 'Mes no válido.';
+  }
 
-    document.getElementById("resultado").innerHTML = estacion;
+  document.getElementById('resultado').textContent = estacion;
 }
