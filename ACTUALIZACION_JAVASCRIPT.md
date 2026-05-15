@@ -36,3 +36,14 @@ Archivos eliminados por no ser necesarios:
 - `script.js`
 
 - Se ha corregido el nombre del archivo `restaurante/reseña.html` para que coincida con el enlace existente.
+
+## Boletín 6 - Local Storage
+- Añadida nueva actividad `actividades-javascript/boletin6-localstorage/`.
+- Añadida al final del menú principal de JavaScript.
+- Incluye tabla de recetas con ID, nombre e ingredientes.
+- Incluye dos desplegables con 5 colores para filas impares y 5 colores para filas pares.
+- Los colores cambian automáticamente al seleccionar una opción.
+- La selección queda guardada con `localStorage` y se recupera al volver a abrir la actividad.
+
+## Corrección de menú
+- Añadido **Boletín 6** también al desplegable principal de **JavaScript** en `index.html`, al final del menú, para que sea visible desde la página de inicio.

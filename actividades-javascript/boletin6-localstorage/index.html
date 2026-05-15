@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boletín 6 - Local Storage</title>
+<link rel="stylesheet" href="../comun.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<header><h1>Boletín 6</h1></header>
+<main>
+<div class="contenedor">
+<h2 class="titulo">Uso de Local Storage</h2>
+<p class="texto">Elige un color para las filas impares y otro para las filas pares. Los colores se aplican automáticamente y se guardan en el navegador.</p>
+
+<div class="bloque controles-storage">
+<label for="colorImpares">Color de filas impares</label>
+<select id="colorImpares">
+<option value="#ffe5ec">Rosa claro</option>
+<option value="#e0f2fe">Azul claro</option>
+<option value="#dcfce7">Verde claro</option>
+<option value="#fef9c3">Amarillo claro</option>
+<option value="#ede9fe">Violeta claro</option>
+</select>
+
+<label for="colorPares">Color de filas pares</label>
+<select id="colorPares">
+<option value="#fed7aa">Naranja claro</option>
+<option value="#ccfbf1">Turquesa claro</option>
+<option value="#fecaca">Rojo claro</option>
+<option value="#e5e7eb">Gris claro</option>
+<option value="#d9f99d">Lima claro</option>
+</select>
+
+<button id="btnRestablecer" type="button">Restablecer colores</button>
+<div id="mensaje" class="resultado">Colores preparados.</div>
+</div>
+
+<div class="bloque">
+<table id="tablaRecetas" class="tabla-recetas">
+<thead>
+<tr>
+<th>ID</th>
+<th>Nombre Receta</th>
+<th>Ingredientes</th>
+</tr>
+</thead>
+<tbody>
+<tr data-fila="1">
+<td>1</td>
+<td>Salmorejo</td>
+<td>Tomate, aceite y pan</td>
+</tr>
+<tr data-fila="2">
+<td>2</td>
+<td>Gachas</td>
+<td>Harina, agua y azúcar</td>
+</tr>
+<tr data-fila="3">
+<td>3</td>
+<td>Migas</td>
+<td>Pan, ajo y aceite</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="bloque">
+<p><strong>Comprobación:</strong> cambia los colores, cierra la pestaña o el navegador y vuelve a abrir la actividad. La tabla mantendrá la selección guardada con <code>localStorage</code>.</p>
+</div>
+
+<div class="btn-container"><a href="../../index.html" class="btn-volver">Volver al inicio</a></div>
+</div>
+</main>
+<footer><p>&copy; 2026 José Gómez Contreras</p></footer>
+</body>
+</html>

@@ -222,3 +222,26 @@ margin: 20px auto;
 border: 3px solid #0f0c29;
 background-color: #222222;
 }
+
+.controles-storage {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+.controles-storage select {
+width: 230px;
+}
+.tabla-recetas tbody tr {
+transition: background-color 0.2s ease;
+}
+.tabla-recetas td {
+font-weight: bold;
+}
+code {
+background-color: #eeeeee;
+color: #cc0000;
+padding: 2px 6px;
+border: 1px solid #0f0c29;
+}
